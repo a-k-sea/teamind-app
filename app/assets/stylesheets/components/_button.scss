@@ -1,0 +1,46 @@
+#landing-btn {
+  background-color: $btn-blue;
+  border-radius: 24px;
+  font-family: karla, sans-serif;
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 10px 40px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#login-btn {
+  background-color: $btn-blue;
+  border-radius: 24px;
+  font-family: karla, sans-serif;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 14px 80px;
+  font-size: 20px;
+}
+
+#signup-btn {
+  background-color: $btn-blue;
+  border-radius: 24px;
+  font-family: karla, sans-serif;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 14px 50px;
+  font-size: 20px;
+}
+
+#small-btn {
+  color: #FFFFFF;
+  background-color: $btn-blue;
+  font-weight: bold;
+  border-radius: 24px;
+  padding: 8px 20px;
+}
+
+#outline-btn {
+  color: $btn-link-blue;
+  border: 1px solid $btn-blue;
+  border-radius: 24px;
+  padding: 5px 30px;
+
+}
