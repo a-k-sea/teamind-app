@@ -25,6 +25,7 @@ puts "Start seeding teams..."
 Team.create(name: "Team 1")
 Team.create(name: "Team 2")
 Team.create(name: "Team 3")
+Team.create(name: "Team 4")
 
 puts "done seeding teams!"
 
@@ -33,5 +34,22 @@ puts "Start seeding memberships..."
 Membership.create(user: User.find(1), team: Team.find(1), owner: false, status: 0)
 Membership.create(user: User.find(1), team: Team.find(2), owner: true, status: 1)
 Membership.create(user: User.find(1), team: Team.find(3), owner: false, status: 1)
+Membership.create(user: User.find(1), team: Team.find(4), owner: false, status: 1)
+
+Membership.create(user: User.find(2), team: Team.find(1), owner: true, status: 1)
+Membership.create(user: User.find(2), team: Team.find(2), owner: false, status: 0)
+Membership.create(user: User.find(2), team: Team.find(3), owner: false, status: 1)
+Membership.create(user: User.find(2), team: Team.find(4), owner: false, status: 1)
+
+Membership.create(user: User.find(3), team: Team.find(1), owner: false, status: 1)
+Membership.create(user: User.find(3), team: Team.find(2), owner: false, status: 0)
+Membership.create(user: User.find(3), team: Team.find(3), owner: true, status: 1)
+Membership.create(user: User.find(3), team: Team.find(4), owner: false, status: 1)
+
+Membership.create(user: User.find(4), team: Team.find(1), owner: false, status: 0)
+Membership.create(user: User.find(4), team: Team.find(2), owner: false, status: 1)
+Membership.create(user: User.find(4), team: Team.find(3), owner: false, status: 1)
+Membership.create(user: User.find(4), team: Team.find(4), owner: true, status: 1)
+
 
 puts "done seeding memberships!"
