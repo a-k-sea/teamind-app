@@ -3,7 +3,15 @@ class TeamsController < ApplicationController
 
 
   def index
+    @teams = policy_scope(Team)
+
     raise
+
+    @teams_open = @teams.where("memberships.status = 0")
+
+    @teams_admin = @teams.where("memberships.owner = true")
+
+    @teams_member = @teams.where("memberships.status = 1")
   end
 
   def new
