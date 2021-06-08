@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   private
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)|(^create_team$)/
   end
 
   protect_from_forgery with: :exception

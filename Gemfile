@@ -5,6 +5,7 @@ ruby '2.6.6'
 
 # I added this manually 🍌
 gem 'pundit'
+gem 'wicked'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
