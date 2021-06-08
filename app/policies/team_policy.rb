@@ -1,7 +1,7 @@
 class TeamPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.joins(:memberships).where("memberships.user_id = ?", user.id)
     end
   end
 
