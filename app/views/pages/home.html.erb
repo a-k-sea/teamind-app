@@ -1,9 +1,14 @@
-<div class="card-team">
-    <h1>Pages#home</h1><br>
-    <p>Find me in app/views/pages/home.html.erb</p><br>
-    <button type="button" id="landing-btn">Create Account</button><br>
-    <button type="submit" id="login-btn">Log in</button><br>
-    <button type="submit" id="signup-btn">Create Account</button><br>
-    <button type="submit" id="outline-btn">Log in</button><br><br>
-    <button type="submit" id="small-btn">Proceed</button>
+<%# I am the landing page %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-md-4">
+      <h1>Humanizing Remote Work</h1>
+      <p>Helping teams to state their preferred working style & communication means.</p><br>
+      <button type="button" id="landing-btn">Create Account</button>
+    </div>
+    <div class="col-6 col-md-8">
+      <%= image_tag "teamind_landing_pic.jpg", alt: "teamind teamwork", style: "height:15%;width:auto;" %>
+    </div>
+  </div>
 </div>
