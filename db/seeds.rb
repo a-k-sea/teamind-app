@@ -13,10 +13,10 @@ Membership.destroy_all
 
 puts "Start seeding users..."
 
-User.create(first_name: "Eriko", last_name: "Kohatsu", email: "eriko@teamind.com", password: "testing")
-User.create(first_name: "Ari", last_name: "Swedberg", email: "ari@teamind.com", password: "testing")
-User.create(first_name: "Hellen", last_name: "van der Kroef", email: "hellen@teamind.com", password: "testing")
-User.create(first_name: "Graciella", last_name: "Dharmawan", email: "graciella@teamind.com", password: "testing")
+User.create(first_name: "Eriko", last_name: "Kohatsu", email: "eriko@teamind.com", password: "testing", admin: true)
+User.create(first_name: "Ari", last_name: "Swedberg", email: "ari@teamind.com", password: "testing", admin: true)
+User.create(first_name: "Hellen", last_name: "van der Kroef", email: "hellen@teamind.com", password: "testing", admin: true)
+User.create(first_name: "Graciella", last_name: "Dharmawan", email: "graciella@teamind.com", password: "testing", admin: true)
 
 puts "done seeding users!"
 
@@ -53,3 +53,71 @@ Membership.create(user: User.find(4), team: Team.find(4), owner: true, status: 1
 
 
 puts "done seeding memberships!"
+
+puts "Start seeding questions..."
+
+Question.create(custom: false, content: "What time do you prefer to work?", category: "Working hours") # Q1
+Question.create(custom: false, content: "What do you like to do after work?", category: "Hobbies") # Q2
+Question.create(custom: false, content: "How do you prefer to be contacted?", category: "Communication") # Q3
+Question.create(custom: false, content: "When do you prefer to receive feedback?", category: "Feedback") # Q4
+Question.create(custom: false, content: "How do you prefer to receive feedback?", category: "Other") # Q5
+Question.create(custom: false, content: "What is your work space situation?", category: "Other") # Q6
+Question.create(custom: false, content: "How do you prefer to work?", category: "Other") # Q7
+Question.create(custom: false, content: "Would you describe youself as rather extroverted or introverted?", category: "Other") # Q8
+Question.create(custom: false, content: "Does being around people energise you or cost you energy?", category: "Other") # Q9
+Question.create(custom: false, content: "Do you prefer to work together or alone?", category: "Other") # Q10
+Question.create(custom: false, content: "How do you like starting your day?", category: "Other") # Q11
+Question.create(custom: false, content: "How do you like ending your day?", category: "Other") # Q12
+
+
+puts "done seeding questions!"
+
+puts "Start seeding answers..."
+
+Answer.create(content: "I prefer to start in the early morning", question: Question.find(1))
+Answer.create(content: "I prefer to start in the late morning", question: Question.find(1))
+Answer.create(content: "I prefer to start in the afternoon", question: Question.find(1))
+Answer.create(content: "I don't have a preference", question: Question.find(1))
+
+Answer.create(content: "Go for drinks with friends", question: Question.find(2))
+Answer.create(content: "Relax & have some me-time", question: Question.find(2))
+Answer.create(content: "Sports", question: Question.find(2))
+
+Answer.create(content: "Email", question: Question.find(3))
+Answer.create(content: "Slack", question: Question.find(3))
+Answer.create(content: "Phone call", question: Question.find(3))
+
+Answer.create(content: "As soon as possible", question: Question.find(4))
+Answer.create(content: "Schedule a meeting with me after a day", question: Question.find(4))
+Answer.create(content: "Schedule a meeting with me after a week", question: Question.find(4))
+
+Answer.create(content: "through a video call", question: Question.find(5))
+Answer.create(content: "written in an email", question: Question.find(5))
+
+Answer.create(content: "Quiet with minimal interuptions", question: Question.find(6))
+Answer.create(content: "Quiet with many interuptions", question: Question.find(6))
+Answer.create(content: "Noisy with minimal interuptions", question: Question.find(6))
+Answer.create(content: "Noisy with many interuptions", question: Question.find(6))
+
+Answer.create(content: "One task that will take months", question: Question.find(7))
+Answer.create(content: "One task that will take around a week", question: Question.find(7))
+Answer.create(content: "One task per day", question: Question.find(7))
+Answer.create(content: "Smaller tasks so that I can complete many in a day", question: Question.find(7))
+
+Answer.create(content: "Rather introverted", question: Question.find(8))
+Answer.create(content: "Rather extroverted", question: Question.find(8))
+
+Answer.create(content: "It energizes me", question: Question.find(9))
+Answer.create(content: "It costs me energy", question: Question.find(9))
+
+Answer.create(content: "I prefer working by myself", question: Question.find(10))
+Answer.create(content: "I like working with one other colleague", question: Question.find(10))
+Answer.create(content: "I prefer to work with multiple colleagues", question: Question.find(10))
+
+Answer.create(content: "With a meeting", question: Question.find(11))
+Answer.create(content: "Continuing work", question: Question.find(11))
+
+Answer.create(content: "With a meeting", question: Question.find(12))
+Answer.create(content: "Continuing work", question: Question.find(12))
+
+puts "done seeding answers!"
