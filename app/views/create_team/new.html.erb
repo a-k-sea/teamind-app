@@ -16,6 +16,7 @@
       <%= simple_form_for @team do |f| %>
       <%= f.input :name, label:"Team name" %>
       <%= f.input :description, label:"Short description" %>
+      <%= f.input :email, label: "Email addresses (separate by comma)" %>
       <label class="btn btn-outline-dark">
         Add a nice picture of your team
         <span style="display:none;">
