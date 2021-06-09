@@ -8,4 +8,8 @@ class TeamPolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def status?
+    return record.owner == user
+  end
 end

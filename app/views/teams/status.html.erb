@@ -1,0 +1,28 @@
+<div class="card-status">
+  <div class="container">
+    <h2 class="text-center">Invitation status</h2>
+  </div>
+    <div>
+      <% @team.memberships.each do |team|%>
+
+      <div class="card-status-infos">
+        <div>
+          <p><%= team.user.first_name %></p>
+          <p><%= team.status  %></p>
+
+          <% if team.status == "accepted" %>
+           <i class="fas fa-circle" id="status-bubble" style="color: #99C2A2; font-size: 20px"></i>
+           <% elsif team.status == "pending" %>
+           <i class="fas fa-circle" id="status-bubble" style="color: orange; font-size: 20px"></i>
+           <% else %>
+           <i class="fas fa-circle" id="status-bubble" style="color: #ca3c25; font-size: 20px"></i>
+           <% end %>
+        </div>
+        <div class="d-flex">
+          <!-- below to be replaced with avatar image -->
+          <!-- <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar"> -->
+        </div>
+      </div>
+    <% end %>
+    </div>
+</div>

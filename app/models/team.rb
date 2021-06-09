@@ -6,4 +6,8 @@ class Team < ApplicationRecord
   has_one_attached :photo
 
   validates :name, presence: true
+  def owner
+    memberships.find_by(owner: true).user
+  end
 end
+
