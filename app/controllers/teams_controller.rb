@@ -5,8 +5,6 @@ class TeamsController < ApplicationController
   def index
     @teams = policy_scope(Team)
 
-    raise
-
     @teams_open = @teams.where("memberships.status = 0")
 
     @teams_admin = @teams.where("memberships.owner = true")
@@ -17,7 +15,7 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
   end
-  
+
   def create
     @team = Team.new(team_params)
     authorize @team
@@ -30,11 +28,11 @@ class TeamsController < ApplicationController
 
   # Wicked wizard
   # include Wicked::Wizard
-  
+
   private
-  
+
   def team_params
     params.require(:team).permit(:name, :description)
   end
-  
+
 end

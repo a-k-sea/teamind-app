@@ -1,1 +1,10 @@
-<h2>This is the index page</h2>
+<div class="card-team">
+   <!-- below to be replaced with team image -->
+  <% @teams_open.each do |team| %>
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-team-infos">
+    <h2><%= team.name %></h2>
+    <p><%= team.description %></p>
+  </div>
+</div>
+<% end %>
