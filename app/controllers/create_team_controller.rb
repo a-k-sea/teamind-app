@@ -24,7 +24,6 @@ class CreateTeamController < ApplicationController
       }
     redirect_to wizard_path(@next_step)
     when :questionnaire
-      raise
       session[:create_team][:questions] = params[:question_ids]
     redirect_to wizard_path(@next_step)
     end
