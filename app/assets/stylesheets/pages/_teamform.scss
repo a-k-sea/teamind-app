@@ -24,3 +24,10 @@
   width: 25px;
   height: 25px;
 }
+
+.bar { 
+  height: 3px;
+  width: 33%;
+  background: $text-grey;
+  position: absolute;
+}
