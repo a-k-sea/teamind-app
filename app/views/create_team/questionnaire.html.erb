@@ -1,1 +1,9 @@
-<%= link_to "Next step", wizard_path(:confirm)  %>
+<div class="container">
+  <% @questions.each do |question| %>
+    <p><%= question.content %></p>
+    <% question.answers.each do |answer| %>
+      <p><%= answer.content %></p>
+    <% end %>
+  <% end %>
+  <%= link_to "Next step", wizard_path(:confirm) %>
+</div>
