@@ -13,10 +13,21 @@ Membership.destroy_all
 
 puts "Start seeding users..."
 
-User.create(first_name: "Eriko", last_name: "Kohatsu", email: "eriko@teamind.com", password: "testing", admin: true)
-User.create(first_name: "Ari", last_name: "Swedberg", email: "ari@teamind.com", password: "testing", admin: true)
-User.create(first_name: "Hellen", last_name: "van der Kroef", email: "hellen@teamind.com", password: "testing", admin: true)
-User.create(first_name: "Graciella", last_name: "Dharmawan", email: "graciella@teamind.com", password: "testing", admin: true)
+photo = URI.open('https://avatars.githubusercontent.com/u/82027970?v=4')
+user = User.create(first_name: "Eriko", last_name: "Kohatsu", email: "eriko@teamind.com", password: "testing", admin: true)
+user.photo.attach(io: photo, filename: 'eriko.png', content_type: 'image/png')
+
+photo = URI.open('https://avatars.githubusercontent.com/u/80180073?v=4')
+user = User.create(first_name: "Ari", last_name: "Swedberg", email: "ari@teamind.com", password: "testing", admin: true)
+user.photo.attach(io: photo, filename: 'eriko.png', content_type: 'image/png')
+
+photo = URI.open('https://avatars.githubusercontent.com/u/80773437?v=4')
+user = User.create(first_name: "Hellen", last_name: "van der Kroef", email: "hellen@teamind.com", password: "testing", admin: true)
+user.photo.attach(io: photo, filename: 'eriko.png', content_type: 'image/png')
+
+photo = URI.open('https://avatars.githubusercontent.com/u/30746274?v=4')
+user = User.create(first_name: "Graciella", last_name: "Dharmawan", email: "graciella@teamind.com", password: "testing", admin: true)
+user.photo.attach(io: photo, filename: 'eriko.png', content_type: 'image/png')
 
 puts "done seeding users!"
 
