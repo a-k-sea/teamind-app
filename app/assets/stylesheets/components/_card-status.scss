@@ -10,10 +10,14 @@
   margin-top: 5%;
   margin-left: 15%;
   padding: 50px;
-  text-align: center;
+  text-align: right;
   height: 50%;
 }
 
 .card-status p {
-  text-align: left;
+  text-align: center;
+}
+
+.card-status-infos {
+  width: 70%;
 }
