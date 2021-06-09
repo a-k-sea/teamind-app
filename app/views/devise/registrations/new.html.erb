@@ -1,4 +1,7 @@
-<div class="card-team">
+<%# I am the user registration page %>
+
+<%# TODO: remove login button in navbar for this page %>
+<div class="bg-card">
   <h2>Join Your Teams</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -27,8 +30,8 @@
       <%= f.input :photo, as: :file %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+    <div class="form-actions text-center">
+      <%= f.button :submit, "Sign up", id:"signup-btn" %>
     </div>
   <% end %>
 
