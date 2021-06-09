@@ -13,7 +13,7 @@
 
     <div class="container" id="create-team-form">
       <%# Make this actually create a team %>
-      <%= simple_form_for @team do |f| %>
+      <%= simple_form_for @team, url: wizard_path(@step), method: :patch do |f| %>
       <%= f.input :name, label:"Team name" %>
       <%= f.input :description, label:"Short description" %>
       <%= f.input :email, label: "Email addresses (separate by comma)" %>

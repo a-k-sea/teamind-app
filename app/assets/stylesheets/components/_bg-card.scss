@@ -1,0 +1,26 @@
+.bg-card, .bg-card-sm {
+  background: $bg-white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 50px;
+  position: relative;
+  padding: 2%;
+  margin-top: 5%;
+}
+
+.bg-card {
+  max-width: 70%;
+  margin-left: 15%;
+}
+
+.bg-card-sm {
+  max-width: 50%;
+  margin-left: 25%;
+}
+
+.bg-card, .bg-card-sm h1 {
+  text-align: center;
+}
+
+.bg-card, .bg-card-sm p {
+  font-family: $headers-font
+}

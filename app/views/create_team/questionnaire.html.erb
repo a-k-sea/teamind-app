@@ -1,9 +1,39 @@
-<div class="container">
-  <% @questions.each do |question| %>
-    <p><%= question.content %></p>
-    <% question.answers.each do |answer| %>
-      <p><%= answer.content %></p>
-    <% end %>
-  <% end %>
-  <%= link_to "Next step", wizard_path(:confirm) %>
+<div class="container" id="questionnaire-form">
+  <%= render "stepper", step: 2 %>
+
+  <%= simple_form_for :question, url: wizard_path(:questionnaire), method: :patch do |f| %>
+    <div class="row">
+      <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <% @categories.each_with_index do |category, index| %>
+            <a class="nav-link <%= "active" if index == 0 %>" id="v-pills-<%= category %>-tab" data-toggle="pill" href="#v-pills-<%= category %>" role="tab" aria-controls="v-pills-<%= category %>" aria-selected="true"><%= category %></a>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+          <% @categories.each_with_index do |category, index| %>
+            <div class="tab-pane fade <%= "show active" if index == 0 %>" id="v-pills-<%= category %>" role="tabpanel" aria-labelledby="v-pills-<%= category %>-tab">
+              <% @questions.where(category: category).each do |question| %>
+              <input name="question_ids[]" type="checkbox" value="<%= question.id %>">
+              <label for="<%= question.id %>"><%= question.content %></label>
+                <ul>
+                  <% question.answers.each do |answer| %>
+                    <li>
+                      <p><%= answer.content %></p>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= f.submit "Proceed", id: "medium-btn" %>
+<% end %>
+
+  <%#= link_to "Proceed", wizard_path(:confirm), id: "medium-btn" %>
+
+
 </div>
