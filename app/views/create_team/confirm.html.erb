@@ -1,7 +1,40 @@
 <br>
 
-<div class="container">
+<div class="container" id="team-form">
   <%= render "stepper", step: 3 %>
-</div>
 
-<%= session[:create_team]["team"]["name"] %>
+  <h2>Final check</h2>
+  <h2>Check your team setup and questionnaire</h2>
+
+  <br><br>
+
+  <div class="container" id="confirm-form">
+    <h4>Your team name</h4>
+    <div class="container" id="confirm-form-background">
+        <%= session[:create_team]["team"]["name"] %>
+    </div>
+    <br>
+    <h4>Your team description</h4>
+    <div class="container" id="confirm-form-background">
+      <%= session[:create_team]["team"]["description"] %>
+    </div>
+    <br>
+    <h4>Your team members</h4>
+    <div class="container" id="confirm-form-background">
+      <%= session[:create_team]["team"]["email"] %>
+    </div>
+    <br>
+    <h4>Your questionnaire</h4>
+    <div class="container" id="confirm-form-background">
+      <%= session[:create_team]["questions"].each do |question_id| %>
+      <%# I hope the questions are saved here 🍌 %>
+      <%= Question.find(question_id).content %>
+      <% end %>
+    </div>
+    <br><br>
+    <div class="container" id="confirm-buttons">
+      <button id="outline-btn">Back</button>
+      <button id="small-btn">Send</button>
+    </div>
+  </div> 
+</div>
