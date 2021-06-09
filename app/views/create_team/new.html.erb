@@ -1,6 +1,33 @@
-<%# Make this actually create a team %>
-<%= simple_form_for @team do |f| %>
-<%= f.input :name %>
-<%= f.input :description %>
-<%= f.submit "Proceed" %>
-<% end %>
+<br>
+
+<div class="container" id="team-form">
+
+  <%= render "stepper", step: 1 %>
+
+  <br>
+
+  <h2>Set up your team</h2>
+  <p>Invite other team members to start humanizing remote work</p>
+
+  <br>
+
+    <div class="container" id="create-team-form">
+      <%# Make this actually create a team %>
+      <%= simple_form_for @team do |f| %>
+      <%= f.input :name, label:"Team name" %>
+      <%= f.input :description, label:"Short description" %>
+      <%= f.input :email, label: "Email addresses (separate by comma)" %>
+      <label class="btn btn-outline-dark">
+        Add a nice picture of your team
+        <span style="display:none;">
+          <%= f.input :photo, as: :file %>
+        </span>
+      </label>
+      <br><br><br>
+      <div class="text-center">
+        <%= f.submit "Proceed", id: "medium-btn" %>
+      </div>
+      <% end %>
+    </div>
+
+</div>
