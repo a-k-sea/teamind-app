@@ -12,6 +12,21 @@
   // text-align: center;
 }
 
+.bg-card {
+  max-width: 70%;
+  background: $bg-white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 50px;
+  position: relative;
+  padding: 2%;
+  margin-top: 5%;
+  margin-left: 15%;
+}
+
+.bg-card h2 {
+  text-align: center;
+}
+
 .card-team img {
   height: 100%;
   width: 120px;
