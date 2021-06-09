@@ -1,0 +1,37 @@
+#landing-btn, #login-btn, #signup-btn, #small-btn {
+  background-color: $btn-blue;
+  border-radius: 24px;
+  font-family: karla, sans-serif;
+  color: #FFFFFF;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+#landing-btn {
+  padding: 10px 40px;
+  font-size: 24px;
+}
+
+#login-btn {
+  padding: 14px 80px;
+  font-size: 20px;
+}
+
+#signup-btn {
+  padding: 14px 50px;
+  font-size: 20px;
+}
+
+#small-btn {
+  padding: 8px 20px;
+}
+
+#outline-btn {
+  color: $btn-link-blue;
+  border: 1px solid $btn-blue;
+  border-radius: 24px;
+  padding: 5px 30px;
+  cursor: pointer;
+}
+

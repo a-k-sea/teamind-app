@@ -1,15 +1,15 @@
 class TeamsController < ApplicationController
   # Use 'authorize @team' to authorize a team and solve Pundit error
 
-
   def index
-    @teams = policy_scope(Team)
+    teams = policy_scope(Team)
 
-    @teams_open = @teams.where("memberships.status = 0")
+    @teams_open = teams.where("memberships.status = 0")
 
-    @teams_admin = @teams.where("memberships.owner = true")
+    @teams_admin = teams.where("memberships.owner = true")
 
-    @teams_member = @teams.where("memberships.status = 1")
+    @teams_member = teams.where("memberships.status = 1 AND memberships.owner = false")
+
   end
 
   def new
@@ -32,7 +32,7 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:name, :description)
+    params.require(:team).permit(:name, :description, :photo)
   end
 
 end
