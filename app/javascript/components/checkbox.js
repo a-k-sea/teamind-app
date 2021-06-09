@@ -9,9 +9,13 @@ const countChecks = () => {
         var checkboxes_checked = document.querySelectorAll('input[type=checkbox]:checked').length;
         if (checkboxes_checked > max) {
           this.checked = false;
+          const counter = document.querySelector('#check-counter');
+          counter.innerHTML = `(${checkboxes_checked - 1}/10)`;
+        } else {
+          const counter = document.querySelector('#check-counter');
+          counter.innerHTML = `(${checkboxes_checked}/10)`
         }
-        const counter = document.querySelector('#check-counter');
-        counter.innerHTML = `(${checkboxes_checked}/10)`
+
       });
     });
   }
