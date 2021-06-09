@@ -11,3 +11,16 @@
   max-width: 75%;
   text-align: left;
 }
+
+
+.dot { 
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: $text-grey;
+}
+
+.dot.active { 
+  width: 25px;
+  height: 25px;
+}
