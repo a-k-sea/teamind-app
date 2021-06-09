@@ -1,27 +1,33 @@
 .card-team {
-  max-width: 70%;
-  background: #F6FBF9;
+  overflow: hidden;
+  height: 120px;
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 50px;
+  display: flex;
+  align-items: center;
   position: relative;
-  padding: 2%;
-  margin-top: 5%;
-  margin-left: 15%;
-  text-align: center;
 }
 
-.card-team .team-image {
+.card-team img {
   height: 100%;
-  // width: 200px;
+  width: 120px;
   object-fit: cover;
 }
 
+.card-team h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
 
-// .card-team .card-team-infos {
-//   padding: 20px;
-//   width: 80%;
-// }
+.card-team p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
 
-// .card-team .links {
-//   text-align: right;
-// }
+.card-team .card-team-infos {
+  padding: 16px;
+}
