@@ -14,4 +14,14 @@ class CreateTeamController < ApplicationController
     end
     render_wizard
   end
+
+  def update
+    case step
+    when :new
+      session[:create_team] = { 
+        team: params[:team]
+      }
+    redirect_to wizard_path(@next_step)
+    end
+  end
 end
