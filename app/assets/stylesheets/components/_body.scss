@@ -1,0 +1,27 @@
+body {
+  background-color: $teamind-green;
+  position: relative;
+}
+
+.background-box {
+  background: #C1E3D6;
+  border-radius: 160px;
+  transform: rotate(-45deg);
+  width: 750px;
+  height: 750px;
+}
+
+
+#background-box-1 {
+  position: absolute;
+  left: 907px;
+  top: 873.33px;
+  z-index: -1;
+}
+
+#background-box-2 {
+  position: absolute;
+  left: -411px;
+  top: 79.33px;
+  z-index: -1;
+}
