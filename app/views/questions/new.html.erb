@@ -1,0 +1,12 @@
+<div class="container">
+  <%= simple_form_for @question do |f| %>
+  <%= f.input :content %>
+  <%= f.input :category %>
+  <%= f.submit "Add question" %>
+  <% end %>
+
+  <%= simple_form_for [ @question, @answer ] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Add answer" %>
+  <%= end %>
+</div>

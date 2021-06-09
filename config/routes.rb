@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   # Wicked wizard
   resources :create_team, only: :show
   resources :teams, only: [ :index, :new, :create ]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :questions, only: [:index, :new] do
+    resources :answers, only: [ :create ]
+  end
 end
