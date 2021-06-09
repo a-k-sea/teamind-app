@@ -29,6 +29,11 @@ class TeamsController < ApplicationController
   # Wicked wizard
   # include Wicked::Wizard
 
+  def status
+    @team = Team.find(params[:id])
+    authorize @team
+  end
+
   private
 
   def team_params
