@@ -17,7 +17,7 @@
             <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
           </div>
           <div class="text-right">
-            <%= link_to "Join team ->", class: "no-underline" %> <br>
+            <%= link_to "Join team ->", class: "no-underline"%> <br>
             <%= link_to "Decline invitation X" %>
           </div>
          </div>
