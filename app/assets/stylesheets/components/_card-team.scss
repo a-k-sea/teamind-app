@@ -6,6 +6,17 @@
   display: flex;
   align-items: center;
   position: relative;
+<<<<<<< HEAD
+=======
+  padding: 2%;
+  margin-top: 5%;
+  margin-left: 15%;
+  // text-align: center;
+}
+
+.card-team h2 {
+  text-align: center;
+>>>>>>> align login button
 }
 
 .card-team img {
@@ -14,11 +25,18 @@
   object-fit: cover;
 }
 
+<<<<<<< HEAD
 .card-team h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
+=======
+.card-team > .form-actions {
+  text-align: center;
+}
+
+>>>>>>> align login button
 
 .card-team p {
   font-size: 12px;
