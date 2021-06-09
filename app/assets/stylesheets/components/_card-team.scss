@@ -1,18 +1,21 @@
 .card-team {
+  max-width: 70%;
+  border-radius: 30px;
   overflow: hidden;
-  height: 120px;
-  background: white;
+  height: 150px;
+  background: #F6FBF9;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   position: relative;
-  border-radius: 13px;
-  margin: 20px 0px;
+  // margin: 20px 0px;
+  margin-top: 5%;
+  margin-left: 15%;
 }
 
 .card-team-img {
   height: 100%;
-  width: 120px;
+  width: 300px;
   object-fit: cover;
 }
 
