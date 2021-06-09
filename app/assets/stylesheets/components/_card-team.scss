@@ -6,6 +6,10 @@
   display: flex;
   align-items: center;
   position: relative;
+  padding: 2%;
+  margin-top: 5%;
+  margin-left: 15%;
+  // text-align: center;
 }
 
 .card-team img {
@@ -15,6 +19,7 @@
 }
 
 .card-team h2 {
+  text-align: center;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
