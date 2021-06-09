@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_093857) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "email"
   end
 
   create_table "user_answers", force: :cascade do |t|

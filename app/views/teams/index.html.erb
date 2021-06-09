@@ -1,39 +1,11 @@
-<div class="container mt-4">
-  <div>
-    <h2>Your open invitations (<%= @teams_open.count %>)</h2>
 
-    <% @teams_open.each do |team| %>
-      <div class="card-team">
-        <!-- below to be replaced with team image -->
-        <img class="team-image" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-team-infos">
-          <h2><%= team.name %></h2>
-          <p><%= team.description %></p>
-          <div class="d-flex justify-content-between">
-            <div class="d-flex">
-              <!-- below to be replaced with avatar image -->
-              <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar">
-              <p><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
-            </div>
-            <div class=links>
-              <%= link_to "Join team ->" %> <br>
-              <%= link_to "Decline invitation X" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="mt-4">
-    <h2>Your teams (<%= @teams_admin.count + @teams_member.count %>)</h2>
-
-    <% @teams_admin.each do |team| %>
-    <p><%= team.name %></p>
-    <% end %>
-
-    <% @teams_member.each do |team| %>
-    <p><%= team.name %></p>
-    <% end %>
+<div class="card-team">
+   <!-- below to be replaced with team image -->
+  <% @teams_open.each do |team| %>
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-team-infos">
+    <h2><%= team.name %></h2>
+    <p><%= team.description %></p>
   </div>
 </div>
+<% end %>

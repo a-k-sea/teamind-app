@@ -1,0 +1,33 @@
+#team-form { 
+  margin: auto;
+  max-width: 60%;
+  background-color: #F6FBF9;
+  text-align: center;
+  border-radius: 24px;
+  padding: 65px 75px;
+}
+
+#create-team-form { 
+  max-width: 75%;
+  text-align: left;
+}
+
+
+.dot { 
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: $text-grey;
+}
+
+.dot.active { 
+  width: 25px;
+  height: 25px;
+}
+
+.bar { 
+  height: 3px;
+  width: 33%;
+  background: $text-grey;
+  position: absolute;
+}
