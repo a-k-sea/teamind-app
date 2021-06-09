@@ -22,10 +22,10 @@ puts "done seeding users!"
 
 puts "Start seeding teams..."
 
-Team.create(name: "Team 1")
-Team.create(name: "Team 2")
-Team.create(name: "Team 3")
-Team.create(name: "Team 4")
+Team.create(name: "Team 1", description: "We are team of like-minded coders from The Hague.")
+Team.create(name: "Team 2", description: "We are team of like-minded coders from Lyon.")
+Team.create(name: "Team 3", description: "We are team of like-minded coders from Maastricht.")
+Team.create(name: "Team 4", description: "We are team of like-minded coders from Frankfurt.")
 
 puts "done seeding teams!"
 

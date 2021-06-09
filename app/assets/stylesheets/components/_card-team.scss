@@ -1,0 +1,27 @@
+.card-team {
+  max-width: 70%;
+  background: #F6FBF9;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 50px;
+  position: relative;
+  padding: 2%;
+  margin-top: 5%;
+  margin-left: 15%;
+  text-align: center;
+}
+
+.card-team .team-image {
+  height: 100%;
+  // width: 200px;
+  object-fit: cover;
+}
+
+
+// .card-team .card-team-infos {
+//   padding: 20px;
+//   width: 80%;
+// }
+
+// .card-team .links {
+//   text-align: right;
+// }
