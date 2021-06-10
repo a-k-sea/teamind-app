@@ -1,4 +1,10 @@
 // Specific CSS for your home-page
-.body {
-  background-color: $bg-green;
+#landing-blurb {
+padding-top: 12%;
+font-family: $headers-font;
+padding-left: 5%;
+}
+
+#landing-blurb a {
+  color: white;
 }
