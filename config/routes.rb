@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :create_team, only: [ :show, :update, :create ]
   resources :teams, only: [ :index, :new, :create ] do
     member do
-      get :status
+      get :status, :show
     end
   end
 

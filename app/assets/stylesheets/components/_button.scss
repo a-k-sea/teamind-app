@@ -27,7 +27,7 @@
   padding: 8px 20px;
 }
 
-#medium-btn { 
+#medium-btn {
   padding: 12px 26px;
   font-size: 24px;
 }
@@ -36,7 +36,7 @@
   color: $btn-link-blue;
   border: 1px solid $btn-blue;
   border-radius: 24px;
-  padding: 5px 30px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 
@@ -52,10 +52,10 @@
   text-align: center;
   margin-bottom: 10px;
 }
+
 .btn-ghost:hover {
   opacity: 1;
 }
-
 
 .btn-invitation {
   padding: 3px 7px;
@@ -121,4 +121,8 @@
   position: absolute;
   right: 15px;
   bottom: 40px;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
 }
