@@ -1,1 +1,6 @@
+<div class="container">
 <h1>this is the index for questions</h1>
+<% @questions.each do |question| %>
+  <%= question.content %>
+<% end %>
+</div>
