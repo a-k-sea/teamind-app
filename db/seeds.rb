@@ -60,15 +60,14 @@ Question.create(custom: false, content: "What time do you prefer to work?", cate
 Question.create(custom: false, content: "What do you like to do after work?", category: "Hobbies") # Q2
 Question.create(custom: false, content: "How do you prefer to be contacted?", category: "Communication") # Q3
 Question.create(custom: false, content: "When do you prefer to receive feedback?", category: "Feedback") # Q4
-Question.create(custom: false, content: "How do you prefer to receive feedback?", category: "Other") # Q5
-Question.create(custom: false, content: "What is your work space situation?", category: "Other") # Q6
-Question.create(custom: false, content: "How do you prefer to work?", category: "Other") # Q7
-Question.create(custom: false, content: "Would you describe youself as rather extroverted or introverted?", category: "Other") # Q8
-Question.create(custom: false, content: "Does being around people energise you or cost you energy?", category: "Other") # Q9
-Question.create(custom: false, content: "Do you prefer to work together or alone?", category: "Other") # Q10
-Question.create(custom: false, content: "How do you like starting your day?", category: "Other") # Q11
-Question.create(custom: false, content: "How do you like ending your day?", category: "Other") # Q12
-
+Question.create(custom: false, content: "How do you prefer to receive feedback?", category: "Feedback") # Q5
+Question.create(custom: false, content: "What is your work space situation?", category: "Work style") # Q6
+Question.create(custom: false, content: "How do you prefer to work?", category: "Work style") # Q7
+Question.create(custom: false, content: "Would you describe yourself as rather extroverted or introverted?", category: "Personality") # Q8
+Question.create(custom: false, content: "Does being around people energise you or cost you energy?", category: "Personality") # Q9
+Question.create(custom: false, content: "Do you prefer to work together or alone?", category: "Work style") # Q10
+Question.create(custom: false, content: "How do you like starting your day?", category: "Work style") # Q11
+Question.create(custom: false, content: "How do you like ending your day?", category: "Work style") # Q12
 
 puts "done seeding questions!"
 
