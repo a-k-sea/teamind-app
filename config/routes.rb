@@ -8,9 +8,8 @@ Rails.application.routes.draw do
     member do
       get :status, :show
     end
+    resources :questions, only: [:index]
   end
+    # resources :answers, only: [ :create ]
 
-  resources :questions, only: [:index, :new] do
-    resources :answers, only: [ :create ]
-  end
 end
