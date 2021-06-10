@@ -13,7 +13,8 @@
          <div class="d-flex justify-content-between">
           <div class="d-flex">
             <!-- below to be replaced with avatar image -->
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar">
+            <%= cl_image_tag current_user.photo.key, class: "avatar", crop: :fill %>
+            <!-- <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar"> -->
             <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
           </div>
           <div class="text-right">
@@ -39,7 +40,7 @@
          <div class="d-flex justify-content-between">
           <div class="d-flex">
             <!-- below to be replaced with avatar image -->
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar">
+            <%= cl_image_tag current_user.photo.key, class: "avatar", crop: :fill %>
             <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
           </div>
           <div class="text-right">
@@ -65,7 +66,7 @@
          <div class="d-flex justify-content-between">
           <div class="d-flex">
             <!-- below to be replaced with avatar image -->
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar">
+            <%= cl_image_tag current_user.photo.key, class: "avatar", crop: :fill %>
             <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
           </div>
           <div class="text-right">
