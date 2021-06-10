@@ -40,7 +40,7 @@ class CreateTeamController < ApplicationController
 
     # Add team memberships for team members (invitees)
     session[:create_team]["team"]["email"].split(",").each do |email| # might add semicolons, dashes etc.
-      user = User.where("email = ?", email.strip).first
+      user = User.find_by_email(email.strip)
       membership_member = Membership.new(user: user, team: team, owner: false)
       membership_member.save
     end
