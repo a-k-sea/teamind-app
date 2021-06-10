@@ -27,7 +27,7 @@
   padding: 8px 20px;
 }
 
-#medium-btn { 
+#medium-btn {
   padding: 12px 26px;
   font-size: 24px;
 }
@@ -36,7 +36,24 @@
   color: $btn-link-blue;
   border: 1px solid $btn-blue;
   border-radius: 24px;
-  padding: 5px 30px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 
+
+.btn-ghost {
+  color: $btn-blue;
+  border: 2px solid $btn-blue;
+  padding: 3px 7px;
+  border-radius: 24px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}

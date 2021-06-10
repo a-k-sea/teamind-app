@@ -12,4 +12,8 @@ class TeamPolicy < ApplicationPolicy
   def status?
     return record.owner == user
   end
+
+  def show?
+    return record.users.include?(user)
+  end
 end
