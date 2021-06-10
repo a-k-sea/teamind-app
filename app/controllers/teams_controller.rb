@@ -2,27 +2,28 @@ class TeamsController < ApplicationController
   # Use 'authorize @team' to authorize a team and solve Pundit error
 
   def index
-    teams = policy_scope(Team)
+    @teams = policy_scope(Team)
 
-    @teams_open = teams.where("memberships.status = 0")
+    @teams_open = @teams.where("memberships.status = 0")
 
-    @teams_admin = teams.where("memberships.owner = true")
+    @teams_admin = @teams.where("memberships.owner = true")
 
-    @teams_member = teams.where("memberships.status = 1 AND memberships.owner = false")
+    @teams_member = @teams.where("memberships.status = 1 AND memberships.owner = false")
 
   end
 
   def new
     @team = Team.new
+    authorize @team
   end
 
   def create
-    @team = Team.new(team_params)
+    @team = Team.new
     authorize @team
     if @team.save
-      redirect_to create_team_path(:questionnaire)
+      redirect_to create_team_path(:new)
     else
-      render "create_team/create_team"
+      redirect_back
     end
   end
 

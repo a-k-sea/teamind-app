@@ -4,6 +4,7 @@ class CreateTeamController < ApplicationController
   steps :new, :questionnaire, :confirm
 
   def show
+    session[:create_team] = session[:create_team] || {}
     questions = policy_scope(Question)
 
     case step
