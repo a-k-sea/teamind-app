@@ -2,22 +2,38 @@
   max-width: 70%;
   border-radius: 30px;
   overflow: hidden;
-  height: 150px;
   background: #F6FBF9;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  align-items: center;
+  // align-items: center;
   position: relative;
-  margin-top: 5%;
-  margin-left: 15%;
+  // margin-top: 5%;
+  margin: auto;
   padding: 50px;
-  text-align: right;
-  height: 50%;
+  // text-align: right;
+  // height: 50%;
 }
 
-.card-status p {
-  text-align: center;
+// .card-status p {
+//   text-align: left;
+// }
+
+.card-status i {
+  text-align: right;
+  margin-left: 10px;
 }
 
 .card-status-infos {
   width: 70%;
+  margin: auto 30px;
+  padding-top: 20px;
 }
+
+.card-status img {
+  display: inline-block;
+  position: absolute;
+}
+
+.card-status p {
+margin-left: 80px;
+}
+

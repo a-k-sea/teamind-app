@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.card-team img {
+.card-team-img {
   height: 100%;
   width: 300px;
   object-fit: cover;
@@ -34,4 +34,8 @@
 .card-team .card-team-infos {
   padding: 16px;
   width: 80%;
+}
+
+.no-underline {
+  text-decoration: none;
 }
