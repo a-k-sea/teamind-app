@@ -1,50 +1,64 @@
 
-<div class="container mx-5">
+<div class="container">
   <div class="container mt-4">
     <h3>Your open invitations (<%= @teams_open.count %>)</h3>
-    <div class="card-team">
-       <!-- below to be replaced with team image -->
       <% @teams_open.each do |team| %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-team-img"/>
-      <div class="card-team-infos">
-        <h2><%= team.name %></h2>
-        <p><%= team.description %></p>
+      <div class="card-team mb-2">
+        <% if team.photo.attached? %>
+          <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+        <% else %>
+          <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+        <% end %>
+        <div class="card-team-infos">
+          <h4><%= team.name %></h4>
+          <p><%= team.description %></p>
 
-         <div class="d-flex justify-content-between">
-          <div class="d-flex">
-            <!-- below to be replaced with avatar image -->
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar">
-            <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
-          </div>
-          <div class="text-right">
-            <%= link_to "Join team ->", class: "no-underline"%> <br>
-            <%= link_to "Decline invitation X" %>
-          </div>
-         </div>
+           <div class="d-flex justify-content-between mt-2">
+            <div class="d-flex">
+              <%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
+              <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
+            </div>
+            <div class="d-flex align-items-end flex-column mt-2">
+
+              <%= link_to questions_path, id: "accept", class: "btn-invitation btn-accept" do %>
+                <div>Join team <i class="fas fa-check"></i></div>
+              <% end %>
+
+              <%= link_to questions_path, id: "reject", class: "btn-invitation btn-decline" do %>
+                <div>Decline <i class="fas fa-times"></i></div>
+              <% end %>
+            </div>
+           </div>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 
    <div class="container mt-4">
     <h3>Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
-    <div class="card-team">
-       <!-- below to be replaced with team image -->
       <% @teams_admin.each do |team| %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-team-img"/>
+      <div class="card-team mb-2">
+      <% if team.photo.attached? %>
+        <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+      <% else %>
+        <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+      <% end %>
       <div class="card-team-infos">
-        <h2><%= team.name %></h2>
+        <h4><%= team.name %></h4>
         <p><%= team.description %></p>
 
-         <div class="d-flex justify-content-between">
+         <div class="d-flex justify-content-between mt-2">
           <div class="d-flex">
-            <!-- below to be replaced with avatar image -->
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar">
+            <%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
             <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
           </div>
-          <div class="text-right">
-            <%= link_to "Show details ->" %> <br>
-            <%= link_to "Show invitees ->", status_team_path(team) %>
+          <div class="d-flex align-items-end flex-column mt-2">
+            <%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
+              <div>Details <i class="fas fa-arrow-right"></i></div>
+            <% end %>
+            <%= link_to status_team_path(team), id: "invite-status", class: "btn-invitation btn-details" do %>
+              <div>Invitees <i class="fas fa-arrow-right"></i></div>
+            <% end %>
           </div>
          </div>
       </div>
@@ -52,24 +66,29 @@
     <% end %>
   </div>
 
-  <div class="container mt-4">
+  <div class="container">
 
-    <div class="card-team">
-       <!-- below to be replaced with team image -->
-      <% @teams_admin.each do |team| %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-team-img"/>
+    <% @teams_member.each do |team| %>
+    <div class="card-team mb-2">
+      <% if team.photo.attached? %>
+        <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+      <% else %>
+        <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+      <% end %>
       <div class="card-team-infos">
-        <h2><%= team.name %></h2>
+        <h4><%= team.name %></h4>
         <p><%= team.description %></p>
 
-         <div class="d-flex justify-content-between">
+         <div class="d-flex justify-content-between mt-2">
           <div class="d-flex">
             <!-- below to be replaced with avatar image -->
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar">
+            <%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
             <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
           </div>
-          <div class="text-right">
-            <%= link_to "Show details ->" %> <br>
+          <div class="d-flex align-items-end flex-column mt-2">
+            <%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
+              <div>Details <i class="fas fa-arrow-right"></i></div>
+            <% end %>
           </div>
          </div>
       </div>
@@ -78,4 +97,3 @@
   </div>
 
 </div>
-

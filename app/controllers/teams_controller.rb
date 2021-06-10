@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
   def index
     teams = policy_scope(Team)
 
-    @teams_open = teams.where("memberships.status = 0")
+    @teams_open = teams.where("memberships.status = 0 OR memberships.status = 2")
 
     @teams_admin = teams.where("memberships.owner = true")
 
