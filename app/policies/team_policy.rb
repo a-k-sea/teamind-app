@@ -14,6 +14,6 @@ class TeamPolicy < ApplicationPolicy
   end
 
   def show?
-    return record.member == user
+    return record.users.include?(user)
   end
 end
