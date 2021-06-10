@@ -8,7 +8,7 @@ class CreateTeamController < ApplicationController
 
     case step
     when :new
-      if session[:create_team]["team"]
+      if session[:create_team] && session[:create_team]["team"]
         @team = Team.new(session[:create_team]["team"])
        else
          @team = Team.new
@@ -39,7 +39,7 @@ class CreateTeamController < ApplicationController
     team.save
 
     # Add team membership for owner
-    membership_owner = Membership.new(user: current_user, team: team, owner: true)
+    membership_owner = Membership.new(user: current_user, team: team, owner: true, status: 1)
     membership_owner.save
 
     # Add team memberships for team members (invitees)
@@ -56,6 +56,7 @@ class CreateTeamController < ApplicationController
       team_question.save
     end
 
+    session.delete(:create_team)
     redirect_to teams_path
   end
 end
