@@ -19,14 +19,14 @@
       <div class="col-9">
         <div class="d-flex justify-content-between">
           <h5>Pick your questions (max. 10)</h5>
-          <h5 id="check-counter">(0/10)</h5>
+          <h5 id="check-counter">(<%= @selected.length %>/10)</h5>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
           <% @categories.each_with_index do |category, index| %>
             <div class="tab-pane fade <%= "show active" if index == 0 %>" id="v-pills-<%= category.parameterize %>" role="tabpanel" aria-labelledby="v-pills-<%= category.parameterize %>-tab">
               <% @questions.where(category: category).each do |question| %>
               <label id="question" for="<%= question.id %>"><%= question.content %></label>
-              <input name="question_ids[]" type="checkbox" value="<%= question.id %>" class="form-check-input" >
+              <input name="question_ids[]" type="checkbox" value="<%= question.id %>" <%= "checked" if @selected.include?(question.id.to_s) %> class="form-check-input" >
                 <ul>
                   <% question.answers.each do |answer| %>
                     <li>
