@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # Wicked wizard
 
-  resources :create_team, only: [ :show, :update ]
+  resources :create_team, only: [ :show, :update, :create ]
   resources :teams, only: [ :index, :new, :create ] do
     member do
       get :status
