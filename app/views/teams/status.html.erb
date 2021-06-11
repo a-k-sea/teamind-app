@@ -1,7 +1,10 @@
 <div class="container">
   <div class="card-status">
 
+
     <h2 class="text-center">Invitation status</h2>
+    <div class="row justify-content-center">
+      <div class="col-8 md-col-6">
     <% @team.memberships.each do |team|%>
     <div class="card-status-infos">
       <div class="d-flex justify-content-left">
@@ -21,6 +24,8 @@
       </div>
     </div>
     <% end %>
+  </div>
+  </div>
   </div>
   <div class="container mt-5" id="confirm-buttons">
   <%= link_to "Back to teams", teams_path, id:"small-btn" %>
