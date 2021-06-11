@@ -4,7 +4,7 @@
     <h2>You are not part of a team yet ☹</h2>
     <br><br>
     <div class="container align-center">
-      <%= link_to teams_path, method: :post do %>
+      <%= link_to create_team_path(:new) do %>
         <button id="plus-button"><strong>+</strong></button>
         <strong>Add a new team</strong>
       <% end %>

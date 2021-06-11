@@ -12,21 +12,6 @@ class TeamsController < ApplicationController
 
   end
 
-  def new
-    @team = Team.new
-    authorize @team
-  end
-
-  def create
-    @team = Team.new
-    authorize @team
-    if @team.save
-      redirect_to create_team_path(:new)
-    else
-      redirect_back
-    end
-  end
-
   # Wicked wizard
   # include Wicked::Wizard
 
@@ -35,10 +20,5 @@ class TeamsController < ApplicationController
     authorize @team
   end
 
-  private
-
-  def team_params
-    params.require(:team).permit(:name, :description, :photo)
-  end
 
 end
