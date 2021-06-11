@@ -6,7 +6,7 @@
   <br>
 
   <h2>Final check</h2>
-  <h2>Check your team setup and questionnaire</h2>
+  <p>Check your team setup and questionnaire</p>
 
   <br><br>
 
@@ -28,10 +28,12 @@
     <br>
     <h4>Your questionnaire</h4>
     <div class="container" id="confirm-form-background">
+      <ol>
       <% session[:create_team]["questions"].each do |question_id| %>
       <%# I hope the questions are saved here 🍌 %>
-      <%= Question.find(question_id).content %>
+      <li><%= Question.find(question_id).content %></li>
       <% end %>
+      </ol>
     </div>
     <br><br>
     <div class="container" id="confirm-buttons">
