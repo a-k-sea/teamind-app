@@ -6,11 +6,17 @@
   font-weight: bold;
   border: none;
   cursor: pointer;
+  width: 100%;
 }
 
 #landing-btn {
   padding: 10px 40px;
-  font-size: 24px;
+  // font-size: 24px;
+  font-size: 2vw;
+}
+
+#landing-btn a {
+  width: 100%;
 }
 
 #login-btn {
