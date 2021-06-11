@@ -1,18 +1,24 @@
 <div class="container">
   <div class="card-status">
-    <h2 class="text-center">Team <%= @team.name %> dashboard</h2>
-    <h3 class="text-center">teammate's profiles</h3>
-
+    <div>
+      <h2 class="text-center">Team <%= @team.name %> dashboard</h2>
+      <h3 class="text-center">check out your teammates profiles</h3>
+    </div>
+    <div>
       <% @team.users.each do |user|  %>
 
     <div class="card-status-infos d-flex justify-content-between">
       <div>
-        <%= cl_image_tag user.photo.key, class: "avatar", crop: :fill %>
+        <%= cl_image_tag user.photo.key, class: "avatar-large", crop: :fill %>
         <p><%= user.first_name %> <%= user.last_name %></p>
       </div>
       <%= link_to "See details", "#", class: "btn btn-ghost" %>
     </div>
-    <% end  %>
+    <% end %>
+  </div>
+</div>
+  <div class="container mt-5" id="confirm-buttons">
+  <%= link_to "Back to teams", teams_path, id:"small-btn" %>
   </div>
 </div>
 
