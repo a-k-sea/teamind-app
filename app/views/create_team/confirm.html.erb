@@ -28,7 +28,7 @@
     <br>
     <h4 class="mb-2">Your questionnaire</h4>
     <div class="container pt-2" id="confirm-form-background">
-      <ol>
+      <ol class="pl-3">
       <% session[:create_team]["questions"].each do |question_id| %>
       <%# I hope the questions are saved here 🍌 %>
       <li><%= Question.find(question_id).content %></li>
