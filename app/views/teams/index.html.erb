@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="container mt-4">
-    <h3>Your open invitations (<%= @teams_open.count %>)</h3>
+  <div class="container mt-4 mb-6">
+    <h3 class="mb-4">Your open invitations (<%= @teams_open.count %>)</h3>
       <% @teams_open.each do |team| %>
 
       <div class="card-team mb-2">
@@ -23,7 +23,7 @@
               <% status = Membership.find_by(team: team, user: current_user).status %>
               <% if status == "pending" %>
                 <%= link_to team_questions_path(team), id: "accept", class: "btn-invitation btn-accept" do %>
-                  <div>Join team <i class="fas fa-check"></i></div>
+                  <div>Join <i class="fas fa-check"></i></div>
                 <% end %>
 
                 <%= link_to membership_path(Membership.find_by(user: current_user, team: team), query: "reject"), id: "reject", class: "btn-invitation btn-decline", method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" } do %>
@@ -40,7 +40,7 @@
   </div>
 
    <div class="container mt-4">
-    <h3>Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
+    <h3 class="mb-4">Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
       <% @teams_admin.each do |team| %>
       <div class="card-team mb-2">
       <% if team.photo.attached? %>
@@ -101,3 +101,5 @@
     <% end %>
   </div>
 </div>
+
+
