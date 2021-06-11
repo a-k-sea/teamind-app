@@ -40,6 +40,18 @@
   cursor: pointer;
 }
 
+
+#plus-button { 
+  background-color: $btn-blue;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
 .btn-ghost {
   color: $btn-blue;
   border: 2px solid $btn-blue;

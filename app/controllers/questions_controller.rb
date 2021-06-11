@@ -1,10 +1,9 @@
 class QuestionsController < ApplicationController
 
   def index
-  end
+    @team = Team.find(params[:team_id])
+    @questions = policy_scope(@team.questions)
+    # @teams = current_user.teams.any?
 
-  def new
-    @question = Question.new
-    authorize @question
   end
 end

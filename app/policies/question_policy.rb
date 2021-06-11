@@ -1,7 +1,7 @@
 class QuestionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where("custom = false")
+      scope.all
     end
   end
 
@@ -12,4 +12,6 @@ class QuestionPolicy < ApplicationPolicy
   def create?
     user.admin == true
   end
+
+
 end
