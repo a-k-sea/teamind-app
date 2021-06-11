@@ -1,4 +1,3 @@
-
 <% if @teams.count == 0 %>
   <br><br><br>
   <div class="container" id="team-form">
@@ -9,12 +8,18 @@
       <p><button id="plus-button"><strong>+</strong></button>
         <strong>Add a new team</strong><p>
           <% end %>
-        </div>
+    </div>
   </div>
 <% else %>
   <div class="container">
     <div class="container mt-4">
-      <h3>Your open invitations (<%= @teams_open.count %>)</h3>
+      <div class="container d-flex justify-content-end mt-6" id="first-team">
+        <%= link_to create_team_path(:new) do %>
+        <p><button id="plus-button"><strong>+</strong></button>
+          <strong>Add a new team</strong><p>
+            <% end %>
+      </div>
+      <h3 class="mb-3">Your open invitations (<%= @teams_open.count %>)</h3>
       <% @teams_open.each do |team| %>
 
       <div class="card-team mb-2">
@@ -54,7 +59,8 @@
     </div>
 
     <div class="container mt-4">
-      <h3>Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
+
+      <h3 class="mb-3">Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
       <% @teams_admin.each do |team| %>
       <div class="card-team mb-2">
         <% if team.photo.attached? %>

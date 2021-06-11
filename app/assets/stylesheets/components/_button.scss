@@ -48,13 +48,21 @@
 
 
 #plus-button { 
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: none;
   background-color: $btn-blue;
   color: #FFFFFF;
   font-weight: bold;
   font-size: large;
   border-radius: 50%;
-  padding: 10px;
   cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 
