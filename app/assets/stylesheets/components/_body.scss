@@ -1,29 +1,38 @@
 body {
   background-color: $teamind-green;
   position: relative;
+  max-width: 100vw;
+
+}
+
+.background-container {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
 }
 
 .background-box {
   background: #C1E3D6;
-  border-radius: 160px;
+  border-radius: 5vh;
   transform: rotate(-45deg);
-  width: 750px;
-  height: 750px;
+  width: 70vh;
+  height: 70vh;
 }
 
 
 #background-box-1 {
   position: absolute;
-  left: 907px;
-  top: 873.33px;
-  z-index: -1;
+  left: 60vw;
+  top: 80vh;
+
 }
 
 #background-box-2 {
   position: absolute;
-  left: -411px;
-  top: 79.33px;
-  z-index: -1;
+  left: -25vh;
+  top: 0vh;
+
 }
 
 

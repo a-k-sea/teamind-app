@@ -19,10 +19,10 @@ user4 = User.create(first_name: "Graciella", last_name: "Dharmawan", email: "gra
 user4.photo.attach(io: photo, filename: 'eriko.png', content_type: 'image/png')
 puts "done seeding users!"
 puts "Start seeding teams..."
-team1 = Team.create(name: "Team 1", description: "We are team of like-minded coders from The Hague.")
-team2 = Team.create(name: "Team 2", description: "We are team of like-minded coders from Lyon.")
-team3 = Team.create(name: "Team 3", description: "We are team of like-minded coders from Maastricht.")
-team4 = Team.create(name: "Team 4", description: "We are team of like-minded coders from Frankfurt.")
+team1 = Team.create(name: "The Hague Heroes", description: "We are team of like-minded coders from The Hague.")
+team2 = Team.create(name: "Lyon Lions", description: "We are team of like-minded coders from Lyon.")
+team3 = Team.create(name: "Maastricht Minimalists", description: "We are team of like-minded coders from Maastricht.")
+team4 = Team.create(name: "Frankfurt Foodies", description: "We are team of like-minded coders from Frankfurt.")
 puts "done seeding teams!"
 puts "Start seeding memberships..."
 Membership.create(user: user1, team: team1, owner: false, status: 0)

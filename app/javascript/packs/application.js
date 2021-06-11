@@ -28,9 +28,17 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { countChecks } from '../components/checkbox';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   countChecks();
+  // initSweetalert('#reject', {
+  //   title: "A nice alert",
+  //   text: "This is a great alert, isn't it?",
+  //   icon: "success"
+  // }, (value) => {
+  //   console.log(value);
+  // });
 });
