@@ -37,9 +37,9 @@
     </div>
     <br><br>
     <div class="container" id="confirm-buttons">
-      <%= link_to "Back", wizard_path(:questionnaire) %>
+      <%= link_to "Back", wizard_path(:questionnaire), id: "back-button" %>
       <%= link_to create_team_index_path, method: :post do %>
-        <button id="small-btn">Send</button>
+        <button id="medium-btn-create">Send</button>
       <% end %>
     </div>
   </div>
