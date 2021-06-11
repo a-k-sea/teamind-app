@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
     # resources :answers, only: [ :create ]
 
-#   resources :memberships, only: :update
+  resources :memberships, only: :update
   # resources :questions, only: [:index, :new] do
   #   resources :answers, only: [ :create ]
   # end
