@@ -1,6 +1,6 @@
 class CreateTeamController < ApplicationController
   include Wicked::Wizard
-
+  require "open-uri"
   steps :new, :questionnaire, :confirm
 
   def show
@@ -26,7 +26,11 @@ class CreateTeamController < ApplicationController
     session[:create_team] = session[:create_team] || {}
     case step
     when :new
-      session[:create_team][:team] = params[:team]
+      if params[:team][:photo]
+        @team_picture = Cloudinary::Uploader.upload(params[:team][:photo])["url"]
+        session[:create_team][:photo] = @team_picture
+      end
+      session[:create_team][:team] = team_params
     redirect_to wizard_path(@next_step)
     when :questionnaire
       session[:create_team]["questions"] = params[:question_ids]
@@ -37,6 +41,10 @@ class CreateTeamController < ApplicationController
   def create
     # Create a new team
     team = Team.new(session[:create_team]["team"])
+    if session[:create_team]["photo"]
+      photo = open(session[:create_team]["photo"])
+      team.photo.attach(io: photo, filename: "team photo")
+    end
     team.save
 
     # Add team membership for owner
@@ -59,5 +67,11 @@ class CreateTeamController < ApplicationController
 
     session.delete(:create_team)
     redirect_to teams_path
+  end
+
+  private
+
+  def team_params
+    params.require(:team).permit(:name, :description, :email)
   end
 end
