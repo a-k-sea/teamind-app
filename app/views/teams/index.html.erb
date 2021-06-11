@@ -6,125 +6,112 @@
     <br><br>
     <div class="container align-center" id="first-team">
       <%= link_to create_team_path(:new) do %>
-        <p><button id="plus-button"><strong>+</strong></button>
+      <p><button id="plus-button"><strong>+</strong></button>
         <strong>Add a new team</strong><p>
-      <% end %>
-    </div>
+          <% end %>
+        </div>
   </div>
 <% else %>
   <div class="container">
     <div class="container mt-4">
       <h3>Your open invitations (<%= @teams_open.count %>)</h3>
-        <% @teams_open.each do |team| %>
+      <% @teams_open.each do |team| %>
 
+      <div class="card-team mb-2">
+        <% if team.photo.attached? %>
+        <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+        <% else %>
+        <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+        <% end %>
+        <div class="card-team-infos">
+          <h4><%= team.name %></h4>
+          <p><%= team.description %></p>
+
+          <div class="d-flex justify-content-between mt-2">
+            <div class="d-flex">
+              <%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
+              <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
+            </div>
+
+            <div class="d-flex align-items-end flex-column mt-2">
+              <% status = Membership.find_by(team: team, user: current_user).status %>
+              <% if status == "pending" %>
+              <%= link_to team_questions_path(team), id: "accept", class: "btn-invitation btn-accept" do %>
+              <div>Join <i class="fas fa-check"></i></div>
+              <% end %>
+
+              <%= link_to membership_path(Membership.find_by(user: current_user, team: team), query: "reject"), id: "reject", class: "btn-invitation btn-decline", method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" } do %>
+              <div>Decline <i class="fas fa-times"></i></div>
+              <% end %>
+              <% else %>
+              <div id="decline-notification"><p><i class="fas fa-exclamation"></i> You have declined this invite</p></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="container mt-4">
+      <h3>Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
+      <% @teams_admin.each do |team| %>
+      <div class="card-team mb-2">
+        <% if team.photo.attached? %>
+        <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+        <% else %>
+        <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+        <% end %>
+        <div class="card-team-infos">
+          <h4><%= team.name %></h4>
+          <p><%= team.description %></p>
+
+          <div class="d-flex justify-content-between mt-2">
+            <div class="d-flex">
+              <%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
+              <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
+            </div>
+            <div class="d-flex align-items-end flex-column mt-2">
+              <%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
+              <div>Details <i class="fas fa-arrow-right"></i></div>
+              <% end %>
+              <%= link_to status_team_path(team), id: "invite-status", class: "btn-invitation btn-details" do %>
+              <div>Invitees <i class="fas fa-arrow-right"></i></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+      <div class="container">
+        <% @teams_member.each do |team| %>
         <div class="card-team mb-2">
           <% if team.photo.attached? %>
-            <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+          <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
           <% else %>
-            <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+          <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
           <% end %>
           <div class="card-team-infos">
             <h4><%= team.name %></h4>
             <p><%= team.description %></p>
 
-             <div class="d-flex justify-content-between mt-2">
+            <div class="d-flex justify-content-between mt-2">
               <div class="d-flex">
+                <!-- below to be replaced with avatar image -->
                 <%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
                 <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
               </div>
-
               <div class="d-flex align-items-end flex-column mt-2">
-                <% status = Membership.find_by(team: team, user: current_user).status %>
-                <% if status == "pending" %>
-                  <%= link_to team_questions_path(team), id: "accept", class: "btn-invitation btn-accept" do %>
-                    <div>Join team <i class="fas fa-check"></i></div>
-                  <% end %>
-
-                  <%= link_to membership_path(Membership.find_by(user: current_user, team: team), query: "reject"), id: "reject", class: "btn-invitation btn-decline", method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" } do %>
-                    <div>Decline <i class="fas fa-times"></i></div>
-                  <% end %>
-                <% else %>
-                  <div id="decline-notification"><p><i class="fas fa-exclamation"></i> You have declined this invite</p></div>
+                <%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
+                <div>Details <i class="fas fa-arrow-right"></i></div>
                 <% end %>
               </div>
-             </div>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
-
-     <div class="container mt-4">
-      <h3>Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
-        <% @teams_admin.each do |team| %>
-        <div class="card-team mb-2">
-        <% if team.photo.attached? %>
-          <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
-        <% else %>
-          <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
-        <% end %>
-        <div class="card-team-infos">
-          <h4><%= team.name %></h4>
-          <p><%= team.description %></p>
-
-           <div class="d-flex justify-content-between mt-2">
-            <div class="d-flex">
-              <%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
-              <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
-            </div>
-            <div class="d-flex align-items-end flex-column mt-2">
-              <%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
-                <div>Details <i class="fas fa-arrow-right"></i></div>
-              <% end %>
-              <%= link_to status_team_path(team), id: "invite-status", class: "btn-invitation btn-details" do %>
-                <div>Invitees <i class="fas fa-arrow-right"></i></div>
-              <% end %>
-            </div>
-           </div>
-        </div>
-      </div>
-    <% end %>
   </div>
-
-   <div class="container mt-4">
-    <h3 class="mb-4">Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
-      <% @teams_admin.each do |team| %>
-      <div class="card-team mb-2">
-      <% if team.photo.attached? %>
-        <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
-      <% else %>
-        <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
-      <% end %>
-    </div>
-
-    <div class="container">
-
-      <% @teams_member.each do |team| %>
-      <div class="card-team mb-2">
-        <% if team.photo.attached? %>
-          <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
-        <% else %>
-          <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
-        <% end %>
-        <div class="card-team-infos">
-          <h4><%= team.name %></h4>
-          <p><%= team.description %></p>
-
-           <div class="d-flex justify-content-between mt-2">
-            <div class="d-flex">
-              <!-- below to be replaced with avatar image -->
-              <%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
-              <p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
-            </div>
-            <div class="d-flex align-items-end flex-column mt-2">
-              <%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
-                <div>Details <i class="fas fa-arrow-right"></i></div>
-              <% end %>
-            </div>
-           </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-<% end -%>
+<% end %>
