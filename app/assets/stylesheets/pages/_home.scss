@@ -2,9 +2,19 @@
 #landing-blurb {
 padding-top: 12%;
 font-family: $headers-font;
-padding-left: 5%;
+padding-left: 1%;
+padding-right: 5%;
 }
 
 #landing-blurb a {
   color: white;
+  width: 100%;
+}
+
+#landing-blurb h1 {
+  width: 100%;
+}
+
+#landing-blurb p {
+  width: 100%;
 }
