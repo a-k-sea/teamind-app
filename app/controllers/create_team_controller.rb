@@ -26,9 +26,11 @@ class CreateTeamController < ApplicationController
     session[:create_team] = session[:create_team] || {}
     case step
     when :new
-      @team_picture = Cloudinary::Uploader.upload(params[:team][:photo])["url"]
+      if params[:team][:photo]
+        @team_picture = Cloudinary::Uploader.upload(params[:team][:photo])["url"]
+        session[:create_team][:photo] = @team_picture
+      end
       session[:create_team][:team] = team_params
-      session[:create_team][:photo] = @team_picture
     redirect_to wizard_path(@next_step)
     when :questionnaire
       session[:create_team]["questions"] = params[:question_ids]
@@ -39,8 +41,10 @@ class CreateTeamController < ApplicationController
   def create
     # Create a new team
     team = Team.new(session[:create_team]["team"])
-    photo = open(session[:create_team]["photo"]).read
-    team.photo.attach(io: photo, filename: "team photo")
+    if session[:create_team]["photo"]
+      photo = open(session[:create_team]["photo"])
+      team.photo.attach(io: photo, filename: "team photo")
+    end
     team.save
 
     # Add team membership for owner
