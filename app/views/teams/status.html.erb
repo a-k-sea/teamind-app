@@ -1,33 +1,33 @@
-<div class="card-status">
-  <div class="container">
+<div class="container">
+  <div class="card-status">
+
+
     <h2 class="text-center">Invitation status</h2>
-  </div>
-
-    <div>
-      <% @team.memberships.each do |team|%>
-      <div class="card-status-infos">
-
-        <div class="d-flex justify-content-left">
-
-            <!-- below to be replaced with avatar image -->
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="avatar" class="avatar">
-        </div>
-
-
-        <p><%= team.user.first_name %> <%= team.user.last_name %></p>
-
-        <div class="d-flex justify-content-left">
-          <p><%= team.status  %></p>
-          <% if team.status == "accepted" %>
-           <i class="fas fa-circle" id="status-bubble" style="color: #99C2A2; font-size: 20px"></i>
-           <% elsif team.status == "pending" %>
-           <i class="fas fa-circle" id="status-bubble" style="color: orange; font-size: 20px"></i>
-           <% else %>
-           <i class="fas fa-circle" id="status-bubble" style="color: #ca3c25; font-size: 20px"></i>
-           <% end %>
-        </div>
-
+    <div class="row justify-content-center">
+      <div class="col-8 md-col-6">
+    <% @team.memberships.each do |team|%>
+    <div class="card-status-infos">
+      <div class="d-flex justify-content-left">
+        <!-- below to be replaced with avatar image -->
+        <%= cl_image_tag team.user.photo.key, class: "avatar-large", crop: :fill %>
       </div>
-    <% end %>
+      <p><%= team.user.first_name %> <%= team.user.last_name %></p>
+      <div class="d-flex justify-content-left">
+        <p><%= team.status  %></p>
+        <% if team.status == "accepted" %>
+          <i class="fas fa-circle" id="status-bubble" style="color: #99C2A2; font-size: 20px"></i>
+          <% elsif team.status == "pending" %>
+          <i class="fas fa-circle" id="status-bubble" style="color: orange; font-size: 20px"></i>
+          <% else %>
+          <i class="fas fa-circle" id="status-bubble" style="color: #ca3c25; font-size: 20px"></i>
+          <% end %>
+      </div>
     </div>
-</div>
+    <% end %>
+  </div>
+  </div>
+  </div>
+  <div class="container mt-5" id="confirm-buttons">
+  <%= link_to "Back to teams", teams_path, id:"small-btn" %>
+  </div>
+ </div>
