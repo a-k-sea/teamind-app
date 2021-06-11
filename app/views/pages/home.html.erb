@@ -1,14 +1,13 @@
 <%# I am the landing page %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-6 col-md-4">
-      <h1>Humanizing Remote Work</h1>
-      <p>Helping teams to state their preferred working style & communication means.</p><br>
-      <button type="button" id="landing-btn">Create Account</button>
-    </div>
-    <div class="col-6 col-md-8">
-      <%= image_tag "teamind_landing_pic.jpg", alt: "teamind teamwork", style: "height:15%;width:auto;" %>
-    </div>
+<div class="d-flex">
+  <div class="col-6 col-md-4" id="landing-blurb">
+    <h1>Humanizing Remote Work</h1>
+    <p>Helping teams to state their preferred working style & communication means.</p><br>
+    <button type="submit" id="landing-btn"><%= link_to "Create Account", "/users/sign_up" %></button>
+    
+  </div>
+  <div class="col-6 col-md-8" id="landing-pic">
+    <%= image_tag "teamind_landing_pic.jpg", alt: "teamind teamwork", style: "height:auto;width:inherit;border-radius:100px;" %>
   </div>
 </div>
