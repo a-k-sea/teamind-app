@@ -14,30 +14,30 @@
 
 
 .dot { 
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: $text-grey;
+  background: #4C8DA9;
   z-index:1;
 }
 
 .dot.active { 
-  width: 25px;
-  height: 25px;
-  background: green;
+  width: 35px;
+  height: 35px;
+  background: #4C8DA9;
   position: relative;
 }
 
 .bar { 
-  height: 3px;
+  height: 5px;
   width: 100%;
-  background: $text-grey;
+  background: #4C8DA9;
   position: absolute;
   z-index:0;
 }
 
 .bar.active { 
-  background: green;
+  background: #4C8DA9;
 }
 
 .right-0 { 
