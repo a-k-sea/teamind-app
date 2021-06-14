@@ -17,6 +17,11 @@
   font-weight: bold;
 }
 
+.dropdown-menu {
+  border-radius: 24px;
+}
+
 .dropdown-item {
   text-align: left;
+  border-radius: inherit;
 }
