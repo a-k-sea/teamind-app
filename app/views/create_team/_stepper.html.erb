@@ -1,8 +1,16 @@
 <div class="text-center">
   <div class="d-flex align-items-center justify-content-between position-relative w-50 m-auto">
-    <div class="bar"></div>
-    <div class="dot <%= "active" if step == 1%>"></div>
-    <div class="dot <%= "active" if step == 2%>"></div>
-    <div class="dot <%= "active" if step == 3%>"></div>
+  <%#   <div class="bar"></div> %>
+    <%= link_to wizard_path(:new) do %>
+      <div class="dot <%= "active" if step >= 1%>"></div>
+    <% end %>
+    <%= link_to wizard_path(:questionnaire) do %>
+     <div class="dot <%= "active" if step >= 2%>"></div>
+    <% end %>
+    <%= link_to wizard_path(:confirm) do %>
+      <div class="dot <%= "active" if step >= 3%>"></div>
+    <% end %>
+    <div class="bar w-50 <%= "active" if step >= 2 %>"></div>
+    <div class="bar w-50 right-0 <%= "active" if step >= 3 %>"></div>
   </div>
 </div>
