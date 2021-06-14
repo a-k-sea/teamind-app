@@ -9,5 +9,6 @@ class Team < ApplicationRecord
   def owner
     memberships.find_by(owner: true).user
   end
+
 end
 

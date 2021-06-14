@@ -7,18 +7,14 @@ Rails.application.routes.draw do
   resources :teams, only: [ :index, :new, :create ] do
     resources :questions, only: :index
     member do
+      post '/questions', to: 'user_answers#create', as: :user_answers
       get :status, :show
     end
-    resources :questions, only: [:index]
   end
     # resources :answers, only: [ :create ]
 
   resources :memberships, only: :update
 
-  resources :user_answers, only: :create
-
-  # resources :questions, only: [:index, :new] do
-  #   resources :answers, only: [ :create ]
-  # end
+  # resources :user_answers, only: :create
 
 end
