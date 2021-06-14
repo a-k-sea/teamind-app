@@ -12,6 +12,7 @@
         <h6><b>Select category</b></h6>
         <div class="nav flex-column nav-pills mt-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <% @categories.each_with_index do |category, index| %>
+          <br>
             <a class="nav-link <%= "active" if index == 0 %>" id="v-pills-<%= category.parameterize %>-tab" data-toggle="pill" href="#v-pills-<%= category.parameterize %>" role="tab" aria-controls="v-pills-<%= category.parameterize %>" aria-selected="true"><%= category %></a>
           <% end %>
         </div>
@@ -29,11 +30,13 @@
               <input name="question_ids[]" type="checkbox" value="<%= question.id %>" <%= "checked" if @selected.include?(question.id.to_s) %> class="form-check-input" >
                 <ul>
                   <% question.answers.each do |answer| %>
+                  <br>
                     <li>
                       <p><%= answer.content %></p>
                     </li>
                   <% end %>
                 </ul>
+                <br><br>
               <% end %>
             </div>
           <% end %>

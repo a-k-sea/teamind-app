@@ -11,22 +11,22 @@
   <br><br>
 
   <div class="container" id="confirm-form">
-    <h4 class="mb-2">Your team name</h4>
+    <h4 class="mb-3">Your team name</h4>
     <div class="container" id="confirm-form-background">
         <%= session[:create_team]["team"]["name"] %>
     </div>
-    <br>
-    <h4 class="mb-2">Your team description</h4>
+    <br><br>
+    <h4 class="mb-3">Your team description</h4>
     <div class="container" id="confirm-form-background">
       <%= session[:create_team]["team"]["description"] %>
     </div>
-    <br>
+    <br><br>
     <h4 class="mb-2">Your team members</h4>
     <div class="container" id="confirm-form-background">
       <%= session[:create_team]["team"]["email"] %>
     </div>
-    <br>
-    <h4 class="mb-2">Your questionnaire</h4>
+    <br><br>
+    <h4 class="mb-3">Your questionnaire</h4>
     <div class="container pt-2" id="confirm-form-background">
       <ol class="pl-3">
       <% session[:create_team]["questions"].each do |question_id| %>
@@ -35,7 +35,7 @@
       <% end %>
       </ol>
     </div>
-    <br><br>
+    <br><br><br>
     <div class="container" id="confirm-buttons">
       <%= link_to "Back", wizard_path(:questionnaire), id: "back-button" %>
       <%= link_to create_team_index_path, method: :post do %>
