@@ -1,7 +1,15 @@
-<div class="container">
-<h1>this is the index for questions</h1>
-<p>Answer all questions to join the team and see what others think</p>
-<% @questions.each do |question| %>
-  <%= question.content %>
-<% end %>
+<div class="container mb-4">
+  <div class="container mb-4" id="questionnaire-form">
+    <h1>Questionnaire Team <%= @team.name %></h1>
+    <p>Answer all questions to join the team and see what others think</p>
+    <%= simple_form_for(:user_answers) do |f| %>
+      <% @questions.each do |question| %>
+        <%= f.input question.content, as: :radio_buttons, collection: question.answers.map { |answer| answer.content } %>
+      <% end %>
+  </div>
+  <div class="text-center">
+      <%= link_to "Back", teams_path, id: "back-button"  %>
+      <%= f.submit "Submit", id: "medium-btn-create", method: :post %>
+  </div>
+    <% end %>
 </div>

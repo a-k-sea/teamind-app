@@ -1,6 +1,32 @@
-.alert {
+// .alert {
+//   position: fixed;
+//   bottom: 16px;
+//   right: 16px;
+//   z-index: 1000;
+// }
+
+.alert{
+  width:50%;
+  margin:20px auto;
+  padding:10px;
   position: fixed;
   bottom: 16px;
   right: 16px;
-  z-index: 1000;
+  border-radius:5px;
 }
+
+@mixin alert($name,$bgColor){
+  $accentColor:darken($bgColor,50);
+  .#{$name}{
+    background-color:#{$bgColor};
+    border-left:5px solid $accentColor;
+    .close{
+      border-color:$accentColor;
+      color:$accentColor;
+    }
+  }
+}
+@include alert(simple-alert,#ebebeb);
+@include alert(success-alert,#a8f0c6);
+@include alert(danger-alert,#f7a7a3);
+@include alert(warning-alert,#ffd48a);

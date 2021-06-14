@@ -1,10 +1,10 @@
 #questionnaire-form {
   margin: auto;
-  max-width: 60%;
+  max-width: 80%;
   background-color: #F6FBF9;
   text-align: left;
   border-radius: 24px;
-  padding: 65px 75px;
+  padding: 65px 50px;
 }
 
 .nav-link {
@@ -12,6 +12,8 @@
   color: black;
   margin-bottom: 5px;
   border-radius: 10px !important;
+  padding: 6px 12px;
+  font-size: 14px;
   &:hover {
     color: black;
   }
@@ -33,6 +35,10 @@
 .tab-content {
   border-radius: 15px;
   position: relative;
+
+  p {
+    font-size: 12px;
+  }
 }
 
 .tab-content input[type="checkbox"] {
@@ -50,10 +56,11 @@
 
 #question {
   font-weight: bold;
+  margin: 0px;
 }
 
 #back-button {
   color: black;
-  text-decoration: underline;
+  text-decoration: none;
   margin-right: 5px;
 }

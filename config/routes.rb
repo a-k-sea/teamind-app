@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     # resources :answers, only: [ :create ]
 
   resources :memberships, only: :update
+
+  resources :user_answers, only: :create
+
   # resources :questions, only: [:index, :new] do
   #   resources :answers, only: [ :create ]
   # end
