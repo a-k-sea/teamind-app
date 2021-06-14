@@ -1,4 +1,4 @@
-Answer.destroy_all
+  Answer.destroy_all
 Membership.destroy_all
 User.destroy_all
 TeamQuestion.destroy_all

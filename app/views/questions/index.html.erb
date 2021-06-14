@@ -1,15 +1,18 @@
 <div class="container mb-4">
+    <%= simple_form_for(:user_answers, method: :post, url: user_answers_team_path(@team)) do |f| %>
   <div class="container mb-4" id="questionnaire-form">
     <h1>Questionnaire Team <%= @team.name %></h1>
     <p>Answer all questions to join the team and see what others think</p>
-    <%= simple_form_for(:user_answers) do |f| %>
-      <% @questions.each do |question| %>
-        <%= f.input question.content, as: :radio_buttons, collection: question.answers.map { |answer| answer.content } %>
+      <!-- ask Marin -->
+      <%= f.input :team, :as => :hidden, :input_html => { :name => "team[#{@team.id}]" } %>
+      <% answers = params[:user_answers]&.values || [] %>
+      <% @questions.each_with_index do |question, index| %>
+        <%= f.input question.content, :input_html => { :name => "user_answers[#{question.id}]" }, as: :radio_buttons, collection: question.answers.map { |answer| [answer.content, answer.id] }, checked: answers[index] %>
       <% end %>
   </div>
   <div class="text-center">
       <%= link_to "Back", teams_path, id: "back-button"  %>
-      <%= f.submit "Submit", id: "medium-btn-create", method: :post %>
+      <%= f.submit "Submit", id: "medium-btn-create" %>
   </div>
     <% end %>
 </div>
