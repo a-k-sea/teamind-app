@@ -106,7 +106,8 @@
   margin-bottom: 5px;
   text-decoration: none;
   padding: 1px 10px;
-  width: 85px;
+  width: 92px;
+  height: 24px;
 
   &:hover {
     opacity: 1;
@@ -163,4 +164,13 @@
 
 .btn-ghost:hover {
   opacity: 1;
+}
+
+#icon-holder {
+  width: 15px;
+  margin-right: 5px;
+}
+
+#text-holder {
+  width: 65px;
 }
