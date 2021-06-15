@@ -5,9 +5,9 @@
 		<br><br>
 		<div class="container align-center" id="first-team">
 			<%= link_to create_team_path(:new) do %>
-			<p><button id="plus-button"><strong>+</strong></button>
+				<p><button id="plus-button"><strong>+</strong></button>
 				<strong>Add a new team</strong><p>
-					<% end %>
+			<% end %>
 		</div>
 	</div>
 <% else %>
@@ -15,23 +15,24 @@
 		<div class="container mt-4">
 			<div class="container d-flex justify-content-end mt-6" id="first-team">
 				<%= link_to create_team_path(:new) do %>
-				<p><button id="plus-button"><strong>+</strong></button>
+				  <p><button id="plus-button"><strong>+</strong></button>
 					<strong>Add a new team</strong><p>
-					<% end %>
+				<% end %>
 			</div>
 
 			<% if @teams_open.count >= 1 %>
-			<br><br>
+        <br><br>
+        
+        <h3 class="mb-3">Your open invitations (<%= @teams_open.count %>)</h3>
 
-			<h3 class="mb-3">Your open invitations (<%= @teams_open.count %>)</h3>
 			<% end %>
       <% @teams_open.each do |team| %>
 
 			<div class="card-team mb-2">
 				<% if team.photo.attached? %>
-				<%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+				  <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
 				<% else %>
-				<%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+				  <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
 				<% end %>
 				<div class="card-team-infos">
 					<h4><%= team.name %></h4>
