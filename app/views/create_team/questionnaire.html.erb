@@ -32,13 +32,11 @@
               <input name="question_ids[]" type="checkbox" value="<%= question.id %>" <%= "checked" if @selected.include?(question.id.to_s) %> class="form-check-input" >
                 <ul>
                   <% question.answers.each do |answer| %>
-                  <br>
                     <li>
                       <p><%= answer.content %></p>
                     </li>
                   <% end %>
                 </ul>
-                <br><br>
               <% end %>
             </div>
           <% end %>
