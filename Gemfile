@@ -5,6 +5,7 @@ ruby '2.6.6'
 
 # I added this manually 🍌
 gem 'pundit'
+gem 'devise_invitable', '~> 2.0.0'
 
 # multi-step form
 gem 'wicked'
