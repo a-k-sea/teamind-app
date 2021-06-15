@@ -13,4 +13,13 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
+
+  def valid_photo_url
+    if photo.attached?
+      photo.key
+    else
+    "default_avatar_cmk0wy.png"
+    end
+  end
+
 end
