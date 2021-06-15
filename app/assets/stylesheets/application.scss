@@ -16,6 +16,13 @@
 @import "pages/personality_questionnaire";
 
 .body-container {
-  height: 100vh;
-  margin-block-end: 15rem;
+  min-height: 100vh;
+  padding-top: 90px;
+  padding-bottom: 20px;
+}
+
+.body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
