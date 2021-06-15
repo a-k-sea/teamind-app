@@ -91,7 +91,12 @@
 						<div class="d-flex">
 							<%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
 							<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
-						<div class="trash-can" id="trash"><i class="fas fa-trash-alt"></i></div>
+						<div class="trash-can" id="trash"><i class="fas fa-trash-alt"></i>
+						  <%= link_to "Delete #{membership = current_user.memberships.find_by(team: team)}",
+						  membership_path(membership),
+						  method: :delete,
+						  data: { confirm: "ARE YOU SURE YOU WANT TO DELETE THIS TEAM? THIS ACTION CANNOT BE UNDONE" } %>
+						</div>
 						</div>
 						<div class="d-flex align-items-end flex-column mt-2">
 							<%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
