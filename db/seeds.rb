@@ -175,7 +175,7 @@ Answer.create(letter: "S", question: p_question2, content: "I pay attention to d
 Answer.create(letter: "N", question: p_question2, content: "I focus more on the big picture than on details. I prefer to try out new ideas and ways of doing things. I like to dream and think about what is possible in the future.")
 
 Answer.create(letter: "T", question: p_question3, content: "When making decisions, I mostly base them on logic. I am interested in things & ideas and I am rather scientific in describing the world.")
-Answer.create(letter: "F", question: p_question3, content: "When making decisions, I mostly base them on my values and use my heart. I am intersted in people & emotions and I am rather poetic in describing the world.")
+Answer.create(letter: "F", question: p_question3, content: "When making decisions, I mostly base them on my values and use my heart. I am interested in people & emotions and I am rather poetic in describing the world.")
 
 Answer.create(letter: "J", question: p_question4, content: "I am very organized and structured. I always make plans in advance and stick to them. I like being in control of my life and like finalizing decisions.")
 Answer.create(letter: "P", question: p_question4, content: "I am usually casual and relaxed. I like going with the flow and can adapt my plans quickly. I like to let life happen and like to leave decisions open so that I can find more information.")

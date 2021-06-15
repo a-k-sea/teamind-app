@@ -16,7 +16,7 @@ class PersonalitiesController < ApplicationController
 
     current_user.save
 
-    redirect_to teams_path
+    redirect_to personality_path
   end
 
   def show
