@@ -19,8 +19,13 @@
 					<strong>Add a new team</strong><p>
 					<% end %>
 			</div>
+
+			<% if @teams_open.count >= 1 %>
+			<br><br>
 			<h3 class="mb-3">Your open invitations (<%= @teams_open.count %>)</h3>
 			<% @teams_open.each do |team| %>
+			<% end %>
+
 			<div class="card-team mb-2">
 				<% if team.photo.attached? %>
 				<%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
