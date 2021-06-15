@@ -8,13 +8,10 @@
     <% @team.memberships.each do |team|%>
     <div class="card-status-infos">
       <div class="d-flex justify-content-left">
-        <!-- below to be replaced with avatar image -->
-
-
         <%= cl_image_tag team.user.valid_photo_url, class: "avatar", alt: "team image" %>
-
         <!--<%#= cl_image_tag team.user.photo.key, class: "avatar-large", crop: :fill %>-->
       </div>
+
       <p><%= team.user.first_name %> <%= team.user.last_name %></p>
       <div class="d-flex justify-content-left">
         <p><%= team.status  %></p>
