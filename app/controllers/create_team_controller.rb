@@ -13,7 +13,7 @@ class CreateTeamController < ApplicationController
         @team = Team.new(session[:create_team]["team"])
        else
          @team = Team.new
-       end       
+       end
     when :questionnaire
       @questions = questions.where('custom = true')
       @categories = @questions.map(&:category).uniq
@@ -54,6 +54,7 @@ class CreateTeamController < ApplicationController
     # Add team memberships for team members (invitees)
     session[:create_team]["team"]["email"].split(",").each do |email| # might add semicolons, dashes etc.
       user = User.find_by_email(email.strip)
+      user = User.invite!(email: email.strip, password: 'password') unless user
       membership_member = Membership.new(user: user, team: team, owner: false)
       membership_member.save
     end

@@ -24,8 +24,9 @@
         <br><br>
         
         <h3 class="mb-3">Your open invitations (<%= @teams_open.count %>)</h3>
+
 			<% end %>
-			<% @teams_open.each do |team| %>
+      <% @teams_open.each do |team| %>
 
 			<div class="card-team mb-2">
 				<% if team.photo.attached? %>

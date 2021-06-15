@@ -13,7 +13,11 @@ class ApplicationController < ActionController::Base
   # end
 
   def after_sign_in_path_for(resource)
-    teams_path
+    if current_user.personality.id == 17
+      personality_test_path
+    else
+      teams_path
+    end
   end
 
   private
