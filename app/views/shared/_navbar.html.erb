@@ -21,6 +21,7 @@
             </div>
                 <li class="nav-item dropdown-menu" aria-labelledby="navbarDropdown" >
                 <p>Welcome <%= current_user.first_name %>!</p>
+                <%= link_to "My Profile", personality_path, class: "dropdown-item" %>
                 <%= link_to "My Teams", teams_path, class: "dropdown-item" %>
                 <%= link_to "Create Team", create_team_path(:new), class: "dropdown-item" %>
                 <hr class="dropdown-divider">
