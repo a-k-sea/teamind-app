@@ -66,7 +66,7 @@ class CreateTeamController < ApplicationController
     end
 
     session.delete(:create_team)
-    redirect_to teams_path
+    redirect_to team_questions_path(team)
   end
 
   private
