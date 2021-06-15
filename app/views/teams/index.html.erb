@@ -75,7 +75,6 @@
 			</div>
 			<% end %>
 		</div>
-    <br><br>
 		<div class="container mt-4">
 			<h3 class="mb-3">Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
 			<% @teams_admin.each do |team| %>
@@ -95,6 +94,7 @@
 							<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
 						</div>
 						<div class="d-flex align-items-end flex-column mt-2">
+						  <div class="trash-can"><i class="fas fa-trash-alt"></i></div>
 							<%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
 							<div class="d-flex text-left align-items-center">
 								<div id="icon-holder">
