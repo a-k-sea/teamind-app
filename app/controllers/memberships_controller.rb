@@ -11,4 +11,13 @@ class MembershipsController < ApplicationController
 
     redirect_to teams_path
   end
+
+  def destroy
+    @membership = Membership.find(params[:id])
+    authorize @membership
+    @membership.destroy
+    redirect_to teams_path, notice: "You successfully deleted this team 🗑🚮"
+  end
+
+  
 end

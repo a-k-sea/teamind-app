@@ -2,6 +2,10 @@
   justify-content: space-between;
   font-family: $headers-font;
   padding: 0;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  // background-color: blue;
 }
 
 .navbar-teamind .navbar-collapse {

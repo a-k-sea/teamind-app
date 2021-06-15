@@ -16,6 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :memberships, only: :update
-
+  resources :memberships, only: [ :update, :destroy ]
+  # resources :user_answers, only: :create
 end
