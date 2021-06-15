@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   # end
 
   def after_sign_in_path_for(resource)
-    if current_user.personality.id == 17
+    unless current_user.personality
       personality_test_path
     else
       teams_path
