@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  get '/personality', to: 'personalities#index', as: :personality_test
+  get '/personality_test', to: 'personalities#index', as: :personality_test
+  get '/personality', to: 'personalities#show'
   post '/personality', to: 'personalities#create'
   # Wicked wizard
 

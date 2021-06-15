@@ -174,3 +174,24 @@
 #text-holder {
   width: 65px;
 }
+
+#personality-btn {
+  width: 200px;
+  background-image: linear-gradient(to right, #4CB8C4 0%, #3CD3AD  51%, #4CB8C4  100%);
+  margin: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  &:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}

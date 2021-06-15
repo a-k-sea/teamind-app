@@ -10,8 +10,17 @@ class PersonalitiesController < ApplicationController
       Answer.find(answer_id).letter
     end.join
 
-    current_user.personality = Personality.find_by(abbreviation: personality_abbreviation)
+    personality = Personality.find_by(abbreviation: personality_abbreviation)
+    authorize personality
+    current_user.personality = personality
+
     current_user.save
 
+    redirect_to teams_path
+  end
+
+  def show
+    @personality = current_user.personality
+    authorize @personality
   end
 end

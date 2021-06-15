@@ -27,7 +27,6 @@
 			<% end %>
       <% @teams_open.each do |team| %>
 
-
 			<div class="card-team mb-2">
 				<% if team.photo.attached? %>
 				<%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
@@ -45,18 +44,28 @@
 						</div>
 
 						<div class="d-flex align-items-end flex-column mt-2">
-							<% status = Membership.find_by(team: team, user: current_user).status %>
-							<% if status == "pending" %>
+						  <% status = Membership.find_by(team: team, user: current_user).status %>
+						  <% if status == "pending" %>
 							<%= link_to team_questions_path(team), id: "accept", class: "btn-invitation btn-accept" do %>
 							<div class="d-flex text-left align-items-center">
-								<div id="icon-holder">
-									<i class="fas fa-check"></i>
+						      <% if current_user == team.memberships.find_by(owner: true).user %>
+							    <div id="icon-holder">
+								  <i class="fas fa-question"></i>
 								</div>
 								<div id="text-holder">
-									Join
+								  Questions
 								</div>
-							</div>
+							  </div>
+							  <% else %>
+								<div id="icon-holder">
+								  <i class="fas fa-check"></i>
+								</div>
+								<div id="text-holder">
+								  Join
+								</div>
+							  </div>
 							<% end %>
+						  <% end %>
 
 							<%= link_to membership_path(Membership.find_by(user: current_user, team: team), query: "reject"), id: "reject", class: "btn-invitation btn-decline", method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" } do %>
 							<div class="d-flex text-left align-items-center">
@@ -102,7 +111,6 @@
 							</div>
 						</div>
 						<div class="d-flex align-items-end flex-column mt-2">
-						  <div class="trash-can"><i class="fas fa-trash-alt"></i></div>
 							<%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
 							<div class="d-flex text-left align-items-center">
 								<div id="icon-holder">
