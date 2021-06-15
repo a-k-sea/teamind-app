@@ -15,7 +15,7 @@ class CreateTeamController < ApplicationController
          @team = Team.new
        end       
     when :questionnaire
-      @questions = questions
+      @questions = questions.where('custom = true')
       @categories = @questions.map(&:category).uniq
       @selected = session[:create_team]["questions"] || []
     end
@@ -48,7 +48,7 @@ class CreateTeamController < ApplicationController
     team.save
 
     # Add team membership for owner
-    membership_owner = Membership.new(user: current_user, team: team, owner: true, status: 1)
+    membership_owner = Membership.new(user: current_user, team: team, owner: true, status: 0)
     membership_owner.save
 
     # Add team memberships for team members (invitees)

@@ -1,9 +1,31 @@
-  Answer.destroy_all
+Personality.destroy_all
+Answer.destroy_all
 Membership.destroy_all
 User.destroy_all
 TeamQuestion.destroy_all
 Team.destroy_all
 Question.destroy_all
+
+puts "Start seeding personalities"
+personality1 = Personality.create(abbreviation: 'INTJ', description: '', matches: [])
+personality2 = Personality.create(abbreviation: 'INTP', description: '', matches: [])
+personality3 = Personality.create(abbreviation: 'ENTJ', description: '', matches: [])
+personality4 = Personality.create(abbreviation: 'ENTP', description: '', matches: [])
+personality5 = Personality.create(abbreviation: 'INFJ', description: '', matches: [])
+personality6 = Personality.create(abbreviation: 'INFP', description: '', matches: [])
+personality7 = Personality.create(abbreviation: 'ENFJ', description: '', matches: [])
+personality8 = Personality.create(abbreviation: 'ENFP', description: '', matches: [])
+personality9 = Personality.create(abbreviation: 'ISTJ', description: '', matches: [])
+personality10 = Personality.create(abbreviation: 'ISFJ', description: '', matches: [])
+personality11 = Personality.create(abbreviation: 'ESTJ', description: '', matches: [])
+personality12 = Personality.create(abbreviation: 'ESFJ', description: '', matches: [])
+personality13 = Personality.create(abbreviation: 'ISTP', description: '', matches: [])
+personality14 = Personality.create(abbreviation: 'ISFP', description: '', matches: [])
+personality15 = Personality.create(abbreviation: 'ESTP', description: '', matches: [])
+personality16 = Personality.create(abbreviation: 'ESFP', description: '', matches: [])
+personality17 = Personality.create(abbreviation: 'no_personality', description: '', matches: [])
+
+puts "done seeding personalities!"
 
 puts "Start seeding users..."
 photo = URI.open('https://avatars.githubusercontent.com/u/82027970?v=4')
@@ -50,16 +72,21 @@ Membership.create(user: user4, team: team4, owner: true, status: 1)
 puts "done seeding memberships!"
 
 puts "Start seeding questions..."
-question1 = Question.create(custom: false, content: "What time do you prefer to work?", category: "Working hours")
-question2 = Question.create(custom: false, content: "What do you like to do after work?", category: "Hobbies")
-question3 = Question.create(custom: false, content: "How do you prefer to be contacted?", category: "Communication")
-question4 = Question.create(custom: false, content: "When do you prefer to receive feedback?", category: "Feedback")
-question5 = Question.create(custom: false, content: "How do you prefer to receive feedback?", category: "Feedback")
-question6 = Question.create(custom: false, content: "What is your work space situation?", category: "Work style")
-question7 = Question.create(custom: false, content: "On what kind of tasks do you like to work?", category: "Work style")
-question8 = Question.create(custom: false, content: "Do you prefer to work together or alone?", category: "Work style")
-question9 = Question.create(custom: false, content: "What is your preferred team meeting platform?", category: "Communication")
-question10 = Question.create(custom: false, content: "When is the ideal time for you to take your lunch break?", category: "Working hours")
+question1 = Question.create(custom: true, content: "What time do you prefer to work?", category: "Working hours")
+question2 = Question.create(custom: true, content: "What do you like to do after work?", category: "Hobbies")
+question3 = Question.create(custom: true, content: "How do you prefer to be contacted?", category: "Communication")
+question4 = Question.create(custom: true, content: "When do you prefer to receive feedback?", category: "Feedback")
+question5 = Question.create(custom: true, content: "How do you prefer to receive feedback?", category: "Feedback")
+question6 = Question.create(custom: true, content: "What is your work space situation?", category: "Work style")
+question7 = Question.create(custom: true, content: "On what kind of tasks do you like to work?", category: "Work style")
+question8 = Question.create(custom: true, content: "Do you prefer to work together or alone?", category: "Work style")
+question9 = Question.create(custom: true, content: "What is your preferred team meeting platform?", category: "Communication")
+question10 = Question.create(custom: true, content: "When is the ideal time for you to take your lunch break?", category: "Working hours")
+
+p_question1 = Question.create(custom: false, content: "Where do you get your energy from?", category: "Personality")
+p_question2 = Question.create(custom: false, content: "How do you perceive the world & how do you gather information?", category: "Personality")
+p_question3 = Question.create(custom: false, content: "How do you usually make decisions?", category: "Personality")
+p_question4 = Question.create(custom: false, content: "To what extent do you like planning ahead?", category: "Personality")
 
 puts "done seeding questions!"
 
@@ -107,9 +134,20 @@ Answer.create(content: "12am - 1pm", question: question10)
 Answer.create(content: "1pm - 2pm", question: question10)
 Answer.create(content: "2pm - 3pm", question: question10)
 Answer.create(content: "I don't really care", question: question10)
+
+Answer.create(letter: "E", question: p_question1, content: "I am very sociable and get energy from spending time with others. I usually talk a lot and often start conversations. I tend to speak before I think. I have a lot of friends and many different interests.")
+Answer.create(letter: "I", question: p_question1, content: "I like quiet environments and get energgy from spending time alone. I hardly ever start conversations but would rather wait for others to do so. I have a few deep friendships.")
+
+Answer.create(letter: "S", question: p_question2, content: "I pay attention to details and enjoy making and creating things. I prefer to do things the established way. I focus on what is real in the present.")
+Answer.create(letter: "N", question: p_question2, content: "I focus more on the big picture than on details. I prefer to try out new ideas and ways of doing things. I like to dream and think about what is possible in the future.")
+
+Answer.create(letter: "T", question: p_question3, content: "When making decisions, I mostly base them on logic. I am interested in things & ideas and I am rather scientific in describing the world.")
+Answer.create(letter: "F", question: p_question3, content: "When making decisions, I mostly base them on my values and use my heart. I am intersted in people & emotions and I am rather poetic in describing the world.")
+
+Answer.create(letter: "J", question: p_question4, content: "I am very organized and structured. I always make plans in advance and stick to them. I like being in control of my life and like finalizing decisions.")
+Answer.create(letter: "P", question: p_question4, content: "I am usually casual and relaxed. I like going with the flow and can adapt my plans quickly. I like to let life happen and like to leave decisions open so that I can find more information.")
+
 puts "done seeding answers!"
-
-
 
 puts "Start seeding team questions..."
 TeamQuestion.create(team: team1, question: question1)

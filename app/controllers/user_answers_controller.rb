@@ -25,15 +25,7 @@ class UserAnswersController < ApplicationController
 
       redirect_to teams_path
     else
-      # render 'teams/questions'
       render 'questions/index'
-      redirect_to teams_
-
     end
   end
 end
-
-  # Questions:
-  # 1. submit never works on first try
-  # 2. Path/URL is changing when the page is rendering
-  # 3. how do we pre-fill the already answered questions
