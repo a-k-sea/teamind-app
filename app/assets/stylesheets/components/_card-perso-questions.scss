@@ -15,10 +15,13 @@
   padding: 12px;
   font-size: 14px;
   width: 380px;
+  text-align: justify;
 }
 
 .answer-input:checked + label {
-  color: red !important;
+  color: $btn-blue !important;
+  font-weight: bold;
+  border-color: $btn-blue;
 }
 
 .answer-wrapper{

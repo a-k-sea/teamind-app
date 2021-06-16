@@ -7,7 +7,7 @@
       </div>
       <% answers = params[:user_answers]&.values || [] %>
       <% @personality_questions.each_with_index do |question, index| %>
-        <div class="mb-4">
+        <div class="mb-4 mt-4">
         <%= f.input question.content,
           label: "<b>#{question.content}</b>".html_safe,
           :input_html => { :name => "user_answers[#{question.id}]", class: "answer-input d-none" },
