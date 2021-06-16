@@ -12,9 +12,9 @@
   border-radius: 30px;
   border: solid 2px #F2F2F2;
   // margin: 10px;
-  padding: 20px;
+  padding: 12px;
   font-size: 14px;
-  width: 300px;
+  width: 380px;
 }
 
 .answer-input:checked + label {
@@ -24,4 +24,5 @@
 .answer-wrapper{
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
