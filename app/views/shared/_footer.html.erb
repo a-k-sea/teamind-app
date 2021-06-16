@@ -9,8 +9,11 @@
     <section class="image-credit">
       <%# Give credit for images only on the page the image is on %>
       <% if action_name == "home" && controller_name == "pages" %>
-        <a href="https://www.freepik.com/free-photos-vectors/people">People vector created by pch.vector - www.freepik.com</a>
+        <a href="https://www.freepik.com/free-photos-vectors/people"> Graphic by pch.vector - www.freepik.com</a>
+      <% elsif action_name == "show" && controller_name == "personalities" %>
+        <a href="https://www.freevector.com/people-and-the-word-teamwork-28519#">Graphic by FreeVector.com</a>
       <% end %>
+
     </section>
   </footer>
 </footer>
