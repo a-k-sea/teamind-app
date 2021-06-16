@@ -71,16 +71,6 @@ class CreateTeamController < ApplicationController
     redirect_to team_questions_path(team)
   end
 
-  # def invite!
-  #   if new_record? || invited?
-  #     self.skip_confirmation! if self.new_record? && self.respond_to?(:skip_confirmation!)
-  #     generate_invitation_token if self.invitation_token.nil?
-  #     self.invitation_sent_at = Time.now.utc
-  #     save(:validate => false)
-  #     ::Devise.mailer.invitation_instructions(self).deliver
-  #   end
-  # end
-
   private
 
   def team_params
