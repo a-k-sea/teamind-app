@@ -1,5 +1,5 @@
 <header class="navbar navbar-expand navbar-light navbar-teamind">
-  <header class="container">
+  <div class="container">
 
     <%# teamind logo redirects to landing page if not logged in, and teams page if logged in%>
     <% if user_signed_in? %>
@@ -12,14 +12,14 @@
       <% end %>
     <% end %>
 
-    <header class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <ul class="dropdown">
             <nav class='dropdown-toggle' data-toggle="dropdown" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
               <%= cl_image_tag current_user.photo.key, class: "avatar-bordered" %>
             </nav>
-              <nav class="nav-item dropdown-menu" aria-labelledby="navbarDropdown" >
+              <nav class="nav-item dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" >
                 <p>Welcome <%= current_user.first_name %>!</p>
                 <%= link_to "My Profile", personality_path, class: "dropdown-item" %>
                 <%= link_to "My Teams", teams_path, class: "dropdown-item" %>
@@ -34,7 +34,7 @@
           </nav>
         <% end %>
       </ul>
-    </header>
+    </ul>
     
-  </header>
+  </div>
 </header>
