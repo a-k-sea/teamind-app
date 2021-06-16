@@ -15,6 +15,18 @@ class MembershipsController < ApplicationController
   def destroy
     @membership = Membership.find(params[:id])
     authorize @membership
+    # Reassign ownership of team to someone with status either accepted or pending
+    if @membership.owner?
+      team = @membership.team
+      new_owner = team.memberships.where("status != 2 AND owner = false").order(status: "desc").first
+      if new_owner == nil
+        @membership.destroy
+        team.destroy
+      else
+      new_owner.owner = true
+      new_owner.save
+      end
+    end
     @membership.destroy
     redirect_to teams_path, notice: "You successfully deleted this team 🗑🚮"
   end
