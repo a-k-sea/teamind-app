@@ -15,10 +15,8 @@
           <p><%= user.first_name %> <%= user.last_name %></p>
         <% else %>
           <p><%= user.email %></p>
-        <% end %>
-
-       <!-- <p class="mb-0"><%= user.first_name %> <%= user.last_name %></p> -->
-      <%= link_to "See details", "#", class: "btn btn-ghost" %>
+        <% end %>  
+      <%= link_to "See details", team_user_path(@team, user), class: "btn btn-ghost" %>
     </div>
     <% end %>
   </div>

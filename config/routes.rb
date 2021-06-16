@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :create_team, only: [ :show, :update, :create ]
   resources :teams, only: [ :index, :new, :create ] do
     resources :questions, only: :index
+
+    resources :users, only: :show
     resources :memberships, only: :create
 
     member do
@@ -18,5 +20,4 @@ Rails.application.routes.draw do
   end
 
   resources :memberships, only: [ :update, :destroy ]
-  # resources :user_answers, only: :create
 end
