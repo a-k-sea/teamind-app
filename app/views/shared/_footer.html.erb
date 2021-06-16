@@ -1,18 +1,16 @@
 <footer class="footer">
   <footer class="container">
     <nav class="footer-links">
-      <nav href="#"><i class="fab fa-github"></i></nav>
-      <nav href="#"><i class="fab fa-instagram"></i></nav>
-      <nav href="#"><i class="fab fa-twitter"></i></nav>
-      <nav href="#"><i class="fab fa-linkedin"></i></nav>
+      <a href="https://github.com/akspyro/teamind-app"><i class="fab fa-github"></i></a>
     </nav>
-    <footer class="image-credit">
-      <%# if url is landing page do %>
-      <%# <a href="https://www.freepik.com/free-photos-vectors/people">People vector created by pch.vector - www.freepik.com</a> %>
+    <section class="details">
+      <p>| Contact us: info@teamind.club | Copyright Teamind 2021 |</p>
+    </section>
+    <section class="image-credit">
+      <%# Give credit for images only on the page the image is on %>
       <% if current_page?(controller: 'pages', action: 'home') %>
-        People vector created by pch.vector
+        <a href="https://www.freepik.com/free-photos-vectors/people">People vector created by pch.vector - www.freepik.com</a>
       <% end %>
-      Image credit will go here.
-    </footer>
+    </section>
   </footer>
 </footer>
