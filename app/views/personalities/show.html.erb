@@ -1,15 +1,5 @@
 <div class="container">
-  <% if current_user.personality.id %>
-  <div class="container text-left" id="personality-show">
-    <h2><%= current_user.first_name %>, your personality type is <%= current_user.personality.abbreviation %> </h2>
-    <h4 class="mb-4">Below you can find a short description of what working in a team means for you</h4>
-    <%= image_tag "teamwork.png", alt: "team graphic" %>
-    <p><%= @personality.description %></p>
-    <div class="text-center">
-        <%= link_to "Dashboard", teams_path, id: "back-button"  %>
-    </div>
-  </div>
-  <% else %>
+  <% if current_user.personality.id == 17 %>
   <div class="container text-center" id="personality-show">
     <h3><%= current_user.first_name %>, you don't have a teamind profile yet! <i class="far fa-frown-open"></i></h3>
     <h4>Please fill out our short questionnaire to unleash the magic! <i class="fas fa-magic"></i></h4>
@@ -17,6 +7,16 @@
       <%= link_to personality_test_path do %>
       <div class="d-flex align-items-center" id="personality-btn"><i class="fas fa-list-ul"></i>Personality questionnaire</div>
       <% end %>
+    </div>
+  </div>
+  <% else %>
+  <div class="container text-left" id="personality-show">
+    <h2><%= current_user.first_name %>, your personality type is <%= current_user.personality.abbreviation %> </h2>
+    <h4 class="mb-4">Below you can find a short description of what working in a team means for you</h4>
+    <%= image_tag "teamwork.png", alt: "team graphic" %>
+    <p><%= @personality.description %></p>
+    <div class="text-center">
+        <%= link_to "Back", teams_path, id: "back-button"  %>
     </div>
   </div>
   <% end %>
