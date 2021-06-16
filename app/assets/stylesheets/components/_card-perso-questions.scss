@@ -1,0 +1,27 @@
+.card-perso-questions {
+  // max-width: 70%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #F6FBF9;
+  border: solid 2px #F2F2F2;
+  margin: 10px;
+  padding: 50px;
+}
+
+.answer-item {
+  border-radius: 30px;
+  border: solid 2px #F2F2F2;
+  // margin: 10px;
+  padding: 20px;
+  font-size: 14px;
+  width: 300px;
+}
+
+.answer-input:checked + label {
+  color: red !important;
+}
+
+.answer-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
