@@ -94,6 +94,7 @@
 
 .btn-ghost:hover {
   opacity: 1;
+  color: $btn-blue;
 }
 
 .btn-invitation {
@@ -194,4 +195,56 @@
 
 a:hover {
   text-decoration: none;
+}
+
+.add-team-button {
+  padding: 12px 24px;
+  line-height: 1.25;
+  background: $btn-blue;
+  text-decoration: none;
+  color: white;
+  font-family: $headers-font;
+  font-size: 16px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  position: relative;
+  transition: background-color .6s ease;
+  overflow: hidden;
+  border-radius: 15px;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform-style: flat;
+    transform: translate3d(-50%,-50%,0);
+    background: rgba(white,.1);
+    border-radius: 100%;
+    transition: width .3s ease, height .3s ease;
+  }
+  &:focus,
+  &:hover {
+      background: darken($btn-blue,7%);
+  }
+  &:active {
+    &:after {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+
+#landing-btn {
+  background-color: $btn-blue;
+  border-radius: 24px;
+  font-family: $headers-font;
+  color: #FFFFFF;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  padding: 10px 20px;
 }
