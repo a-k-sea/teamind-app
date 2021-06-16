@@ -7,6 +7,11 @@
       <nav href="#"><i class="fab fa-linkedin"></i></nav>
     </nav>
     <footer class="image-credit">
+      <%# if url is landing page do %>
+      <%# <a href="https://www.freepik.com/free-photos-vectors/people">People vector created by pch.vector - www.freepik.com</a> %>
+      <% if current_page?(controller: 'pages', action: 'home') %>
+        People vector created by pch.vector
+      <% end %>
       Image credit will go here.
     </footer>
   </footer>
