@@ -8,7 +8,7 @@
     </section>
     <section class="image-credit">
       <%# Give credit for images only on the page the image is on %>
-      <% if current_page?(controller: 'pages', action: 'home') %>
+      <% if action_name == "home" && controller_name == "pages" %>
         <a href="https://www.freepik.com/free-photos-vectors/people">People vector created by pch.vector - www.freepik.com</a>
       <% end %>
     </section>
