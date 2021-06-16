@@ -53,8 +53,9 @@ class CreateTeamController < ApplicationController
 
     # Add team memberships for team members (invitees)
     session[:create_team]["team"]["email"].split(",").each do |email| # might add semicolons, dashes etc.
+      next if email.strip == current_user.email
       user = User.find_by_email(email.strip)
-      user = User.invite!(email: email.strip, password: 'password') unless user
+      user = User.invite!(email: email.strip, password: 'password', skip_invitation: true) unless user
       membership_member = Membership.new(user: user, team: team, owner: false)
       membership_member.save
     end
@@ -69,6 +70,16 @@ class CreateTeamController < ApplicationController
     session.delete(:create_team)
     redirect_to team_questions_path(team)
   end
+
+  # def invite!
+  #   if new_record? || invited?
+  #     self.skip_confirmation! if self.new_record? && self.respond_to?(:skip_confirmation!)
+  #     generate_invitation_token if self.invitation_token.nil?
+  #     self.invitation_sent_at = Time.now.utc
+  #     save(:validate => false)
+  #     ::Devise.mailer.invitation_instructions(self).deliver
+  #   end
+  # end
 
   private
 
