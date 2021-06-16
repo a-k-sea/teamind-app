@@ -35,3 +35,8 @@
   <%= link_to "Back to teams", teams_path, id:"small-btn" %>
   </div>
  </div>
+
+ <%= simple_form_for [@team, Membership.new] do |f| %>
+ <%= f.input :user, label: "Enter the email address of the person you wish to invite"%>
+ <%= f.submit "invite" %>
+ <% end %>
