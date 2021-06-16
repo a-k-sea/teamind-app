@@ -1,5 +1,5 @@
-<div class="navbar navbar-expand navbar-light navbar-teamind">
-  <div class="container">
+<header class="navbar navbar-expand navbar-light navbar-teamind">
+  <header class="container">
 
     <%# teamind logo redirects to landing page if not logged in, and teams page if logged in%>
     <% if user_signed_in? %>
@@ -12,29 +12,29 @@
       <% end %>
     <% end %>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <header class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
-          <div class="dropdown">
-            <div class='dropdown-toggle' data-toggle="dropdown" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
+          <ul class="dropdown">
+            <nav class='dropdown-toggle' data-toggle="dropdown" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
               <%= cl_image_tag current_user.photo.key, class: "avatar-bordered" %>
-            </div>
-                <li class="nav-item dropdown-menu" aria-labelledby="navbarDropdown" >
+            </nav>
+              <nav class="nav-item dropdown-menu" aria-labelledby="navbarDropdown" >
                 <p>Welcome <%= current_user.first_name %>!</p>
                 <%= link_to "My Profile", personality_path, class: "dropdown-item" %>
                 <%= link_to "My Teams", teams_path, class: "dropdown-item" %>
                 <%= link_to "Create Team", create_team_path(:new), class: "dropdown-item" %>
                 <hr class="dropdown-divider">
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </li>
-          </div>
+              </nav>
+          </ul>
         <% else %>
-          <li class="nav-item">
+          <nav class="nav-item">
             <%= link_to "Login", new_user_session_path, id: "outline-btn" %>
-          </li>
+          </nav>
         <% end %>
       </ul>
-    </div>
+    </header>
     
-  </div>
-</div>
+  </header>
+</header>
