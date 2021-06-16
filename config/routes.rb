@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :create_team, only: [ :show, :update, :create ]
   resources :teams, only: [ :index, :new, :create ] do
     resources :questions, only: :index
+
     resources :users, only: :show
+    resources :memberships, only: :create
 
     member do
       post '/questions', to: 'user_answers#create', as: :user_answers

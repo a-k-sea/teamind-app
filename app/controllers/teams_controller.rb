@@ -25,4 +25,5 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     authorize @team
   end
+
 end
