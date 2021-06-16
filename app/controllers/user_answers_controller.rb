@@ -1,6 +1,6 @@
 class UserAnswersController < ApplicationController
   def create
-    @team = Team.find(params[:team].keys.first)
+    @team = Team.find(params[:id])
     authorize @team
     @questions = policy_scope(@team.questions)
     user = current_user

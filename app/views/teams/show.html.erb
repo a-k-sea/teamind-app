@@ -11,7 +11,7 @@
 
       <%= cl_image_tag user.photo.key, class: "avatar-large", crop: :fill %>
        <p class="mb-0"><%= user.first_name %> <%= user.last_name %></p>
-      <%= link_to "See details", "#", class: "btn btn-ghost" %>
+      <%= link_to "See details", team_user_path(@team, user), class: "btn btn-ghost" %>
     </div>
     <% end %>
   </div>
