@@ -5,8 +5,8 @@
     <h4 class="mb-4">Below you can find a short description of what working in a team means for you</h4>
     <%= image_tag "teamwork.png", alt: "team graphic" %>
     <p><%= @personality.description %></p>
-    <div class="text-center">
-        <%= link_to "Dashboard", teams_path, id: "back-button"  %>
+    <div class="text-center" id="confirm-buttons">
+        <%= link_to "Go to dashboard", teams_path, id: "small-btn"  %>
     </div>
   </div>
   <% else %>
