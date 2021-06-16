@@ -16,4 +16,8 @@ class TeamPolicy < ApplicationPolicy
   def show?
     return record.users.include?(user)
   end
+
+  def update?
+    return record.owner == user
+  end
 end
