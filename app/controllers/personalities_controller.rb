@@ -20,7 +20,12 @@ class PersonalitiesController < ApplicationController
   end
 
   def show
-    @personality = current_user.personality
-    authorize @personality
+    if current_user.personality
+      @personality = current_user&.personality
+      authorize @personality
+    else
+      @personality = nil
+      skip_authorization
+    end
   end
 end

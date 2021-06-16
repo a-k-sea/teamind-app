@@ -4,18 +4,14 @@
   overflow: hidden;
   background: #F6FBF9;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // align-items: center;
   position: relative;
-  // margin-top: 5%;
   margin: auto;
   padding: 50px;
-  // text-align: right;
-  // height: 50%;
-}
+  p {
+    margin: auto 0 auto 10px;
 
-// .card-status p {
-//   text-align: left;
-// }
+  }
+}
 
 .card-status i {
   text-align: right;
@@ -24,20 +20,6 @@
 
 .card-status-infos {
   margin: 40px;
-  align-items: center;
-  p {
-    margin: 0;
-  }
-
-}
-
-.card-status img {
-  display: inline-block;
-  position: absolute;
-}
-
-.card-status p {
-margin-left: 80px;
 }
 
 .card-questions {

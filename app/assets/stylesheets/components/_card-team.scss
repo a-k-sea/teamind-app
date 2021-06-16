@@ -1,5 +1,13 @@
+.team-section {
+  h3 {
+    font-weight: bold;
+    color: $btn-blue;
+    margin-bottom: 10px;
+  }
+}
+
 .card-team {
-  max-width: 90%;
+  width: 90%;
   border-radius: 30px;
   overflow: hidden;
   height: 150px;
@@ -8,19 +16,17 @@
   display: flex;
   align-items: center;
   position: relative;
+  h4 {
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
+  }
 }
 
 .card-team-img {
-  height: 100%;
   width: 300px;
   object-fit: cover;
-}
-
-.card-team h4 {
-  font-size: 16px;
-  text-align: left;
-  font-weight: bold;
-  margin: 0;
 }
 
 .card-team p {
@@ -29,6 +35,16 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.team-section {
+  hr {
+    width: 90%;
+    margin: 5px 0;
+    background-color: $btn-blue;
+    height: 2px;
+    border: none;
+  }
 }
 
 .card-team .card-team-infos {
