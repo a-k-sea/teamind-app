@@ -9,7 +9,7 @@
 
     <div class="card-status-infos d-flex justify-content-between align-items-center">
 
-      <%= cl_image_tag user.photo.key, class: "avatar-large", crop: :fill %>
+      <%= cl_image_tag user.valid_photo_url, class: "avatar-large", crop: :fill %>
        <p class="mb-0"><%= user.first_name %> <%= user.last_name %></p>
       <%= link_to "See details", "#", class: "btn btn-ghost" %>
     </div>

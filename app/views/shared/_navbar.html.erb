@@ -17,7 +17,7 @@
         <% if user_signed_in? %>
           <ul class="dropdown">
             <nav class='dropdown-toggle' data-toggle="dropdown" id="navbarDropdown" aria-haspopup="true" aria-expanded="false">
-              <%= cl_image_tag current_user.photo.key, class: "avatar-bordered" %>
+              <%= cl_image_tag current_user.valid_photo_url, class: "avatar-bordered" %>
             </nav>
               <nav class="nav-item dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" >
                 <p>Welcome <%= current_user.first_name %>!</p>
