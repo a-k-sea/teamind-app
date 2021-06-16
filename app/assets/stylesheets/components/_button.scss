@@ -89,6 +89,7 @@
   transition: opacity 0.3s ease;
   font-size: 12px;
   text-align: center;
+  width: auto;
 
 }
 
@@ -161,10 +162,6 @@
   position: absolute;
   right: 15px;
   bottom: 40px;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
 }
 
 #icon-holder {
