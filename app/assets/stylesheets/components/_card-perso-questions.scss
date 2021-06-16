@@ -1,0 +1,36 @@
+.card-perso-questions {
+  // max-width: 70%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #F6FBF9;
+  border: solid 2px #F2F2F2;
+  margin: 10px;
+  padding: 50px;
+}
+
+.answer-item {
+  border-radius: 30px;
+  border: solid 2px #F2F2F2;
+  // margin: 10px;
+  padding: 12px;
+  font-size: 14px;
+  width: 380px;
+  text-align: justify;
+}
+
+.answer-input:checked + label {
+  color: $btn-blue !important;
+  font-weight: bold;
+  border-color: $btn-blue;
+}
+
+.answer-wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.answer-wrapper :hover {
+  cursor: pointer;
+}
