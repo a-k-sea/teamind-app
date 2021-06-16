@@ -7,7 +7,7 @@ class Team < ApplicationRecord
 
   validates :name, presence: true, unless: :new_record?
   def owner
-    memberships.find_by(owner: true).user
+    memberships.find_by(owner: true)&.user
   end
 
   def invite(email)
