@@ -8,7 +8,12 @@
       <%= f.input :team, :as => :hidden, :input_html => { :name => "team[#{@team.id}]" } %>
       <% answers = params[:user_answers]&.values || [] %>
       <% @questions.each_with_index do |question, index| %>
-     <%= f.input question.content, label: "<b>#{question.content}</b>".html_safe, :input_html => { :name => "user_answers[#{question.id}]" }, as: :radio_buttons, collection: question.answers.map { |answer| [answer.content, answer.id] }, checked: answers[index] %>
+     <%= f.input question.content,
+        label: "<b>#{question.content}</b>".html_safe,
+        :input_html => { :name => "user_answers[#{question.id}]", class: "answer-input" },
+        as: :radio_buttons,
+        collection: question.answers.map { |answer| [answer.content, answer.id] },
+        checked: answers[index]%>
       <% end %>
       </div>
   </div>
@@ -18,3 +23,5 @@
   </div>
     <% end %>
 </div>
+
+
