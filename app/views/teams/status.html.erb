@@ -35,26 +35,29 @@
     <h2 class="text-center">Invitation status</h2>
     <div class="row justify-content-center">
       <div class="col-8 md-col-6">
-        <% @team.memberships.each do |team|%>
+        <% @team.memberships.each do |membership|%>
           <div class="card-status-infos">
-            <div class="d-flex justify-content-left">
-              <%= cl_image_tag team.user.valid_photo_url, class: "avatar", alt: "team image" %>
-              <!--<%#= cl_image_tag team.user.photo.key, class: "avatar-large", crop: :fill %>-->
-            </div>
-            <% if team.user.first_name? %>
-              <p><%= team.user.first_name %> <%= team.user.last_name %></p>
-            <% else %>
-              <p><%= team.user.email %></p>
-            <% end %>
-            <div class="d-flex justify-content-left">
-              <p><%= team.status  %></p>
-              <% if team.status == "accepted" %>
-                <i class="fas fa-circle" id="status-bubble" style="color: #99C2A2; font-size: 20px"></i>
-              <% elsif team.status == "pending" %>
-                <i class="fas fa-circle" id="status-bubble" style="color: orange; font-size: 20px"></i>
-              <% else %>
-                <i class="fas fa-circle" id="status-bubble" style="color: #ca3c25; font-size: 20px"></i>
-              <% end %>
+            <div class="d-flex align-items-center">
+              <%= cl_image_tag membership.user.valid_photo_url, class: "avatar", alt: "team image" %>
+              <div class="">
+                <div>
+                  <% if membership.user.first_name? %>
+                    <p><%= membership.user.first_name %> <%= membership.user.last_name %></p>
+                  <% else %>
+                    <p><%= membership.user.email %></p>
+                  <% end %>
+                </div>
+                <div class="d-flex">
+                  <p><%= membership.status %></p>
+                  <% if membership.status == "accepted" %>
+                    <i class="fas fa-circle" id="status-bubble" style="color: #99C2A2; font-size: 20px"></i>
+                  <% elsif membership.status == "pending" %>
+                    <i class="fas fa-circle" id="status-bubble" style="color: orange; font-size: 20px"></i>
+                  <% else %>
+                    <i class="fas fa-circle" id="status-bubble" style="color: #ca3c25; font-size: 20px"></i>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
         <% end %>

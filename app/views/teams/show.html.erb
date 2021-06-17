@@ -1,30 +1,33 @@
+<% content_for :meta_title, "#{@team.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @team.description %>
+<% content_for :meta_image, cl_image_path(@team.photo.key) %>
+
 <div class="container">
   <div class="card-status">
     <div >
-      <h2 class="text-center">Team <%= @team.name %> dashboard</h2>
-      <h3 class="text-center">Check out your teammates' profiles</h3>
+      <h3 class="text-center">Team <%= @team.name %></h3>
+      <p class="text-center">Check out your teammates' profiles</p>
       <div class="row justify-content-center">
         <div class="col-10">
-      <% @team.users.each do |user|  %>
-
-    <div class="card-status-infos d-flex justify-content-between align-items-center">
-
-      <%= cl_image_tag user.valid_photo_url, class: "avatar-large", crop: :fill %>
-
-      <% if user.first_name? %>
-          <p><%= user.first_name %> <%= user.last_name %></p>
-        <% else %>
-          <p><%= user.email %></p>
-        <% end %>  
-      <%= link_to "See details", team_user_path(@team, user), class: "btn btn-ghost" %>
+          <% @team.users.each do |user|  %>
+            <div class="card-status-infos d-flex justify-content-between align-items-center">
+              <div class="d-flex">
+                <%= cl_image_tag user.valid_photo_url, class: "avatar-large", crop: :fill %>
+                <% if user.first_name? %>
+                  <p><%= user.first_name %> <%= user.last_name %></p>
+                <% else %>
+                  <p><%= user.email %></p>
+                <% end %>
+              </div>
+              <% if user.personality || UserAnswer.where(user: user, team: @team).count > 0 %>
+                <%= link_to "See details", team_user_path(@team, user), class: "btn btn-ghost" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <% end %>
   </div>
-  </div>
-    </div>
-
-
-</div>
   <div class="container mt-5" id="confirm-buttons">
   <%= link_to "Back to teams", teams_path, id:"small-btn" %>
   </div>

@@ -78,30 +78,41 @@ puts "done seeding users!"
 
 puts "Start seeding teams..."
 team1 = Team.create(name: "The Hague Heroes", description: "We are team of like-minded coders from The Hague.")
+photo = URI.open('https://lh3.googleusercontent.com/proxy/nCup3nVTFtOzsEsW3YGXbcpwiSACjXiZ09ShCiEtxKVe4o0FR0BXoS6oEB7oDa_LcXUciNIV8mMqz_LttGv-7rC7-1o')
+team1.photo.attach(io: photo, filename: 'team.png', content_type: 'image/png')
+
 team2 = Team.create(name: "Lyon Lions", description: "We are team of like-minded coders from Lyon.")
+photo = URI.open('https://www.talk-business.co.uk/wp-content/uploads/2019/05/shutterstock_1139899730-632x422.jpg')
+team2.photo.attach(io: photo, filename: 'team.png', content_type: 'image/png')
+
 team3 = Team.create(name: "Maastricht Masters", description: "We are team of like-minded coders from Maastricht.")
+photo = URI.open('https://www.gsb.stanford.edu/sites/default/files/styles/1630x_variable/public/build-better-teams-key.jpg?itok=cenTh4Hq')
+team3.photo.attach(io: photo, filename: 'team.png', content_type: 'image/png')
+
 team4 = Team.create(name: "Frankfurt Foodies", description: "We are team of like-minded coders from Frankfurt.")
+photo = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-4oETzAue_iDKdE7K6BoXLiMhGcf8algl6A&usqp=CAU')
+team4.photo.attach(io: photo, filename: 'team.png', content_type: 'image/png')
 puts "done seeding teams!"
 
 puts "Start seeding memberships..."
 Membership.create(user: user1, team: team1, owner: false, status: 0)
 Membership.create(user: user1, team: team2, owner: true, status: 1)
-Membership.create(user: user1, team: team3, owner: false, status: 1)
-Membership.create(user: user1, team: team4, owner: false, status: 1)
+Membership.create(user: user1, team: team3, owner: false, status: 0)
+Membership.create(user: user1, team: team4, owner: false, status: 0)
 
 Membership.create(user: user2, team: team1, owner: true, status: 1)
 Membership.create(user: user2, team: team2, owner: false, status: 0)
-Membership.create(user: user2, team: team3, owner: false, status: 1)
-Membership.create(user: user2, team: team4, owner: false, status: 1)
+Membership.create(user: user2, team: team3, owner: false, status: 0)
+Membership.create(user: user2, team: team4, owner: false, status: 0)
 
-Membership.create(user: user3, team: team1, owner: false, status: 1)
+Membership.create(user: user3, team: team1, owner: false, status: 0)
 Membership.create(user: user3, team: team2, owner: false, status: 0)
 Membership.create(user: user3, team: team3, owner: true, status: 1)
-Membership.create(user: user3, team: team4, owner: false, status: 1)
+Membership.create(user: user3, team: team4, owner: false, status: 0)
 
 Membership.create(user: user4, team: team1, owner: false, status: 0)
-Membership.create(user: user4, team: team2, owner: false, status: 1)
-Membership.create(user: user4, team: team3, owner: false, status: 1)
+Membership.create(user: user4, team: team2, owner: false, status: 0)
+Membership.create(user: user4, team: team3, owner: false, status: 0)
 Membership.create(user: user4, team: team4, owner: true, status: 1)
 puts "done seeding memberships!"
 
@@ -116,6 +127,7 @@ question7 = Question.create(custom: true, content: "On what kind of tasks do you
 question8 = Question.create(custom: true, content: "Do you prefer to work together or alone?", category: "Work style")
 question9 = Question.create(custom: true, content: "What is your preferred team meeting platform?", category: "Communication")
 question10 = Question.create(custom: true, content: "When is the ideal time for you to take your lunch break?", category: "Working hours")
+question11 = Question.create(custom: true, content: "How do you spend your holidays?", category: "Hobbies")
 
 p_question1 = Question.create(custom: false, content: "Where do you get your energy from?", category: "Personality")
 p_question2 = Question.create(custom: false, content: "How do you perceive the world & how do you gather information?", category: "Personality")
@@ -130,10 +142,10 @@ Answer.create(content: "I prefer to start in the late morning", question: questi
 Answer.create(content: "I prefer to start in the afternoon", question: question1)
 Answer.create(content: "I don't have a preference", question: question1)
 
-Answer.create(content: "Go for drinks with friends", question: question2)
-Answer.create(content: "Relax & have some me-time", question: question2)
-Answer.create(content: "Sports", question: question2)
-Answer.create(content: "Spend time with my family", question: question2)
+answer5 = Answer.create(content: "Go for drinks with friends", question: question2)
+answer6 = Answer.create(content: "Relax & have some me-time", question: question2)
+answer7 = Answer.create(content: "Sports", question: question2)
+answer8 = Answer.create(content: "Spend time with my family", question: question2)
 
 Answer.create(content: "Email", question: question3)
 Answer.create(content: "Slack", question: question3)
@@ -170,7 +182,7 @@ Answer.create(content: "2pm - 3pm", question: question10)
 Answer.create(content: "I don't really care", question: question10)
 
 Answer.create(letter: "E", question: p_question1, content: "I am very sociable and get energy from spending time with others. I usually talk a lot and often start conversations. I tend to speak before I think. I have a lot of friends and many different interests.")
-Answer.create(letter: "I", question: p_question1, content: "I like quiet environments and get energgy from spending time alone. I hardly ever start conversations but would rather wait for others to do so. I have a few deep friendships.")
+Answer.create(letter: "I", question: p_question1, content: "I like quiet environments and get energy from spending time alone. I hardly ever start conversations but would rather wait for others to do so. I have a few deep friendships.")
 
 Answer.create(letter: "S", question: p_question2, content: "I pay attention to details and enjoy making and creating things. I prefer to do things the established way. I focus on what is real in the present.")
 Answer.create(letter: "N", question: p_question2, content: "I focus more on the big picture than on details. I prefer to try out new ideas and ways of doing things. I like to dream and think about what is possible in the future.")
@@ -180,6 +192,11 @@ Answer.create(letter: "F", question: p_question3, content: "When making decision
 
 Answer.create(letter: "J", question: p_question4, content: "I am very organized and structured. I always make plans in advance and stick to them. I like being in control of my life and like finalizing decisions.")
 Answer.create(letter: "P", question: p_question4, content: "I am usually casual and relaxed. I like going with the flow and can adapt my plans quickly. I like to let life happen and like to leave decisions open so that I can find more information.")
+
+Answer.create(content: "On the beach - doing nothing besides reading & eating.", question: question11)
+Answer.create(content: "In the mountains to hike or skiing in the winter.", question: question11)
+Answer.create(content: "Exploring a new country and culture", question: question11)
+Answer.create(content: "At home - enjoying my garden.", question: question11)
 
 puts "done seeding answers!"
 
