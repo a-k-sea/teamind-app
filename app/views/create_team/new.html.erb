@@ -14,9 +14,9 @@
   <div class="container" id="create-team-form">
     <%# Make this actually create a team %>
     <%= simple_form_for @team, url: wizard_path(@step), method: :patch do |f| %>
-      <%= f.input :name, label:"Team name" %>
-      <%= f.input :description, label:"Short description" %>
-      <%= f.input :email, label: "Email addresses (separate by comma)" %>
+      <h6><b><%= f.input :name, label:"Team name" %></b></h6>
+      <h6><b><%= f.input :description, label:"Short description" %></b></h6>
+      <h6><b><%= f.input :email, label: "Email addresses (separate by comma)" %></b></h6>
       <label class="btn btn-outline-dark">
         Add a nice picture of your team
         <span style="display:none;">

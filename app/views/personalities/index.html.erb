@@ -2,7 +2,7 @@
   <%= simple_form_for(:personalities, method: :post, url: personality_path) do |f| %>
     <div class="container mb-4" id="personality-questionnaire-form">
       <div class="mb-4s">
-        <h1 class="text-center"><%= current_user.first_name %>'s Personality Questionnaire </h1>
+        <h3 class="text-center"><%= current_user.first_name %>'s Personality Questionnaire </h3>
         <p>Please answer the 4 questions below. The 2 options always represent an extreme and you will often find yourself somewhere in the middle. Pick the option that reflects your character better and with which you can identify more - even if it's just a slight tendency.</p>
       </div>
       <% answers = params[:user_answers]&.values || [] %>
