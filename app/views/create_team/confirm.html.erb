@@ -1,6 +1,6 @@
 <br>
 
-<div class="container" id="team-form">
+<div class="div-80-transparent" id="team-form">
   <%= render "stepper", step: 3 %>
 
   <br>
@@ -10,28 +10,28 @@
 
   <br><br>
 
-  <div class="container" id="confirm-form">
+  <div id="confirm-form">
     <h6 class="mb-3"><b><i class="fas fa-tag"></i> Your team name</b></h6>
 
-    <div class="container" id="confirm-form-background">
+    <div  id="confirm-form-background">
         <%= session[:create_team]["team"]["name"] %>
     </div>
     <br><br>
     <h6 class="mb-3"><b><i class="fas fa-edit"></i> Your team description</b></h6>
 
-    <div class="container" id="confirm-form-background">
+    <div  id="confirm-form-background">
       <%= session[:create_team]["team"]["description"] %>
     </div>
     <br><br>
     <h6 class="mb-2"><b><i class="fas fa-users"></i> Your team members</b></h6>
 
-    <div class="container" id="confirm-form-background">
+    <div  id="confirm-form-background">
       <%= session[:create_team]["team"]["email"] %>
     </div>
     <br><br>
     <h6 class="mb-3"><b><i class="far fa-question-circle"></i> Your questionnaire</b></h6>
 
-    <div class="container pt-2" id="confirm-form-background">
+    <div pt-2 id="confirm-form-background">
       <ol class="pl-3">
       <% session[:create_team]["questions"].each do |question_id| %>
 
@@ -40,7 +40,7 @@
       </ol>
     </div>
     <br><br><br>
-    <div class="container" id="confirm-buttons">
+    <div  id="confirm-buttons">
       <%= link_to "Back", wizard_path(:questionnaire), id: "back-button" %>
       <%= link_to create_team_index_path, method: :post do %>
         <button id="medium-btn-create">Send</button>
