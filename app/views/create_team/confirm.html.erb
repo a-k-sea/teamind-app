@@ -34,7 +34,7 @@
     <div class="container pt-2" id="confirm-form-background">
       <ol class="pl-3">
       <% session[:create_team]["questions"].each do |question_id| %>
-      <%# I hope the questions are saved here 🍌 %>
+
       <li><p><%= Question.find(question_id).content %></p></li>
       <% end %>
       </ol>

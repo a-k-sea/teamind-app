@@ -1,10 +1,10 @@
-<div class="container">
+<div class="div-80-transparent">
   <% if current_user.personality %>
-  <div class="text-left" id="personality-show">
+  <div class="text-left mb-2" id="personality-show">
     <h2><%= current_user.first_name %>, your personality type is <%= current_user.personality.abbreviation %> </h2>
     <h4 class="mb-4">Below you can find a short description of what working in a team means for you</h4>
     <%= image_tag "teamwork.png", alt: "team graphic" %>
-    <p><%= @personality.description %></p>
+    <p class="mb-4"><%= @personality.description %></p>
     <div class="text-center" id="confirm-buttons">
         <%= link_to "Go to dashboard", teams_path, id: "small-btn"  %>
     </div>
