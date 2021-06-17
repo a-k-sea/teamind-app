@@ -3,5 +3,5 @@
 meta_product_name: "teamind"
 meta_title: "teamind - humanizing remote work"
 meta_description: "Find out more about your teammates' personalities & work preferences"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_image: "https://res.cloudinary.com/gridgies/image/upload/v1623914770/cover_mvhlh3.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
