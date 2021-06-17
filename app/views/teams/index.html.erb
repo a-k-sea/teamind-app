@@ -1,11 +1,10 @@
 <% if @teams.count == 0 %>
-	<br><br><br>
-	<div class="container" id="team-form">
-		<h2>You are not part of a team yet ☹</h2>
-		<br><br>
-		<div class="container align-center" id="first-team">
+
+	<div class="container mt-4" id="team-form">
+		<h3>You are not part of a team yet <i class="far fa-frown-open"></i></h3>
+		<div class="d-flex justify-content-center align-center" id="first-team">
 			<%= link_to create_team_path(:new) do %>
-				<div class="add-team-button">Add a new team</div>
+				<div class="add-team-button mt-4">Add a new team</div>
 			<% end %>
 		</div>
 	</div>
@@ -19,7 +18,7 @@
 				<% end %>
 			</div>
 			<% if @teams_open.count >= 1 %>
-        <h3 class="mt-3"><i class="fas fa-envelope-open-text"></i> Your open invitations (<%= @teams_open.count %>)</h3>
+        <h3 class="mt-3"><i class="fas fa-envelope-open-text"></i> Your invitations (<%= @teams_open.count %>)</h3>
 			<% end %>
       <% @teams_open.each do |team| %>
 

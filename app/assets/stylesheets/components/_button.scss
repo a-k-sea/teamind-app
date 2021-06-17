@@ -208,6 +208,7 @@ a:hover {
   transition: background-color .6s ease;
   overflow: hidden;
   border-radius: 15px;
+  width: fit-content;
   &:after {
     content: "";
     position: absolute;
