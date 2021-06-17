@@ -10,12 +10,12 @@
 }
 
 #landing-btn {
-  padding: 2%;
-}
+  padding: 10px 20px;
 
-#landing-btn a {
-  width: 100%;
-  font-size: 1.5vw;
+  a {
+    width: 100%;
+    font-size: 1.5vw;
+  }
 }
 
 #login-btn {
@@ -39,7 +39,7 @@
 
 #medium-btn-create {
   text-align: center;
-  padding: 10px 20px;
+  padding: 10px;
   font-size: 16px;
   width: 100px;
   background-color: $btn-blue;
@@ -92,11 +92,10 @@
   text-align: center;
   width: auto;
 
-}
-
-.btn-ghost:hover {
-  opacity: 1;
-  color: $btn-blue;
+  &:hover {
+    opacity: 1;
+    color: $btn-blue;
+  }
 }
 
 .btn-invitation {
