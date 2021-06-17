@@ -1,5 +1,5 @@
-<header class="navbar navbar-expand navbar-light navbar-teamind fixed-top">
-  <div class="container">
+<header class="navbar navbar-expand navbar-light navbar-teamind">
+  <div class="container" id="navbar-container">
 
     <%# teamind logo redirects to landing page if not logged in, and teams page if logged in%>
     <% if user_signed_in? %>
@@ -12,7 +12,7 @@
       <% end %>
     <% end %>
 
-    <ul class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="collapse navbar-collapse mb-0" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <ul class="dropdown">
