@@ -257,3 +257,12 @@ a:hover {
       background: linear-gradient(#335E75, #4C8DA9);
   }
 }
+
+
+.btn-outline-dark {
+  border-radius: 15px;
+  font-size: 12px;
+  &:hover {
+    background-color: $btn-blue;
+  }
+}

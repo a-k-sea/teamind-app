@@ -10,13 +10,13 @@
         <div class="mb-4 mt-4">
         <%= f.input question.content,
           label: "<b>#{question.content}</b>".html_safe,
-          :input_html => { :name => "user_answers[#{question.id}]", class: "answer-input d-none" },
+          :input_html => { :name => "user_answers[#{question.id}]", class: "answer-input-q d-none"},
           as: :radio_buttons,
           collection: question.answers.map { |answer| [answer.content, answer.id] },
           checked: answers[index],
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'answer-wrapper',
-          item_wrapper_class: 'answer-item'%>
+          item_wrapper_class: 'answer-item-team'%>
         </div>
       <% end %>
     </div>

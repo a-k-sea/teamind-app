@@ -11,171 +11,175 @@
 		</div>
 	</div>
 <% else %>
-	<div class="container mb-4 d-flex flex-column justify-content-center">
-		<div class="team-section mt-4 text-left">
+	<div class="d-flex justify-content-center">
+  <div class="div-80-transparent">
+    <div class="container mb-4 d-flex flex-column justify-content-center">
+  		<div class="team-section mt-4 text-left">
 
-			<div class="d-flex justify-content-end mt-6" id="first-team">
-				<%= link_to create_team_path(:new) do %>
-				  <div class="add-team-button">Add new team</div>
-				<% end %>
-			</div>
-			<% if @teams_open.count >= 1 %>
-        <h3 class="mt-3"><i class="fas fa-envelope-open-text"></i> Your invitations (<%= @teams_open.count %>)</h3>
-			<% end %>
-      <% @teams_open.each do |team| %>
+  			<div class="d-flex justify-content-end mt-6" id="first-team">
+  				<%= link_to create_team_path(:new) do %>
+  				  <div class="add-team-button">Add new team</div>
+  				<% end %>
+  			</div>
+  			<% if @teams_open.count >= 1 %>
+          <h3 class="mt-3"><i class="fas fa-envelope-open-text"></i> Your invitations (<%= @teams_open.count %>)</h3>
+  			<% end %>
+        <% @teams_open.each do |team| %>
 
-			<div class="card-team mb-2">
-				<% if team.photo.attached? %>
-				  <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
-				<% else %>
-				  <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
-				<% end %>
-				<div class="card-team-infos">
-					<h4><%= team.name %></h4>
-					<p><%= team.description %></p>
+  			<div class="card-team mb-2">
+  				<% if team.photo.attached? %>
+  				  <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+  				<% else %>
+  				  <%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+  				<% end %>
+  				<div class="card-team-infos">
+  					<h4><%= team.name %></h4>
+  					<p><%= team.description %></p>
 
-					<div class="d-flex justify-content-between mt-2">
-						<div class="d-flex">
-							<%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
-							<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
-						</div>
+  					<div class="d-flex justify-content-between mt-2">
+  						<div class="d-flex">
+  							<%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
+  							<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
+  						</div>
 
-						<div class="d-flex align-items-end flex-column mt-2">
-						  <% status = Membership.find_by(team: team, user: current_user).status %>
-						  <% if status == "pending" %>
-							<%= link_to team_questions_path(team), id: "accept", class: "btn-invitation btn-accept" do %>
-							<div class="d-flex text-left align-items-center">
-						      <% if current_user == team.memberships.find_by(owner: true).user %>
-							    <div id="icon-holder">
-								  <i class="fas fa-question"></i>
-								</div>
-								<div id="text-holder">
-								  Questions
-								</div>
-							  </div>
-							  <% else %>
-								<div id="icon-holder">
-								  <i class="fas fa-check"></i>
-								</div>
-								<div id="text-holder">
-								  Join
-								</div>
-							  </div>
-							<% end %>
-						  <% end %>
+  						<div class="d-flex align-items-end flex-column mt-2">
+  						  <% status = Membership.find_by(team: team, user: current_user).status %>
+  						  <% if status == "pending" %>
+  							<%= link_to team_questions_path(team), id: "accept", class: "btn-invitation btn-accept" do %>
+  							<div class="d-flex text-left align-items-center">
+  						      <% if current_user == team.memberships.find_by(owner: true).user %>
+  							    <div id="icon-holder">
+  								  <i class="fas fa-question"></i>
+  								</div>
+  								<div id="text-holder">
+  								  Questions
+  								</div>
+  							  </div>
+  							  <% else %>
+  								<div id="icon-holder">
+  								  <i class="fas fa-check"></i>
+  								</div>
+  								<div id="text-holder">
+  								  Join
+  								</div>
+  							  </div>
+  							<% end %>
+  						  <% end %>
 
-							<%= link_to membership_path(Membership.find_by(user: current_user, team: team), query: "reject"), id: "reject", class: "btn-invitation btn-decline", method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" } do %>
-							<div class="d-flex text-left align-items-center">
-								<div id="icon-holder">
-									<i class="fas fa-times"></i>
-								</div>
-								<div id="text-holder">
-									Decline
-								</div>
-							</div>
-							<% end %>
-							<% else %>
-							<div id="decline-notification"><p><i class="fas fa-exclamation"></i> You have declined this invite</p></div>
-							<% end %>
-						</div>
-					</div>
-				</div>
-			</div>
-			<% end %>
-		</div>
-		<div class="team-section mt-4">
-			<h3 class="mt-3"><i class="fas fa-users"></i> Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
-			<% @teams_admin.each do |team| %>
-			<div class="card-team mb-2">
-				<% if team.photo.attached? %>
-				<%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
-				<% else %>
-				<%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
-				<% end %>
-				<div class="card-team-infos">
-					<h4><%= team.name %></h4>
-					<p><%= team.description %></p>
-					<div class="d-flex justify-content-between mt-2">
-						<div class="d-flex">
-							<%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
-							<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
-							<div class="trash-can" id="trash">
-								<%= link_to membership_path(membership = current_user.memberships.find_by(team: team)),
-								method: :delete,
-								data: { confirm: "🗑 ARE YOU SURE YOU WANT TO DELETE THIS TEAM? THIS ACTION CANNOT BE UNDONE. DELETING YOURSELF WILL NOT DELETE THE TEAM FOR OTHERS. 🚮" } do %>
-								<i class="fas fa-times-circle"></i>
-								<% end %>
-							</div>
-						</div>
-						<div class="d-flex align-items-end flex-column mt-2">
-							<%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
-							<div class="d-flex text-left align-items-center">
-								<div id="icon-holder">
-									<i class="fas fa-info-circle"></i>
-								</div>
-								<div id="text-holder">
-									Details
-								</div>
-							</div>
-							<% end %>
-							<%= link_to status_team_path(team), id: "invite-status", class: "btn-invitation btn-details" do %>
-							<div class="d-flex text-left align-items-center">
-								<div id="icon-holder">
-									<i class="fas fa-users"></i>
-								</div>
-								<div id="text-holder">
-								 Invitees
-								 </div>
-							 </div>
-							<% end %>
-						</div>
-					</div>
-				</div>
-			</div>
-			<% end %>
-		</div>
+  							<%= link_to membership_path(Membership.find_by(user: current_user, team: team), query: "reject"), id: "reject", class: "btn-invitation btn-decline", method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" } do %>
+  							<div class="d-flex text-left align-items-center">
+  								<div id="icon-holder">
+  									<i class="fas fa-times"></i>
+  								</div>
+  								<div id="text-holder">
+  									Decline
+  								</div>
+  							</div>
+  							<% end %>
+  							<% else %>
+  							<div id="decline-notification"><p><i class="fas fa-exclamation"></i> You have declined this invite</p></div>
+  							<% end %>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  			<% end %>
+  		</div>
+  		<div class="team-section mt-4">
+  			<h3 class="mt-3"><i class="fas fa-users"></i> Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
+  			<% @teams_admin.each do |team| %>
+  			<div class="card-team mb-2">
+  				<% if team.photo.attached? %>
+  				<%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+  				<% else %>
+  				<%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+  				<% end %>
+  				<div class="card-team-infos">
+  					<h4><%= team.name %></h4>
+  					<p><%= team.description %></p>
+  					<div class="d-flex justify-content-between mt-2">
+  						<div class="d-flex">
+  							<%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
+  							<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
+  							<div class="trash-can" id="trash">
+  								<%= link_to membership_path(membership = current_user.memberships.find_by(team: team)),
+  								method: :delete,
+  								data: { confirm: "🗑 ARE YOU SURE YOU WANT TO DELETE THIS TEAM? THIS ACTION CANNOT BE UNDONE. DELETING YOURSELF WILL NOT DELETE THE TEAM FOR OTHERS. 🚮" } do %>
+  								<i class="fas fa-times-circle"></i>
+  								<% end %>
+  							</div>
+  						</div>
+  						<div class="d-flex align-items-end flex-column mt-2">
+  							<%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
+  							<div class="d-flex text-left align-items-center">
+  								<div id="icon-holder">
+  									<i class="fas fa-info-circle"></i>
+  								</div>
+  								<div id="text-holder">
+  									Details
+  								</div>
+  							</div>
+  							<% end %>
+  							<%= link_to status_team_path(team), id: "invite-status", class: "btn-invitation btn-details" do %>
+  							<div class="d-flex text-left align-items-center">
+  								<div id="icon-holder">
+  									<i class="fas fa-users"></i>
+  								</div>
+  								<div id="text-holder">
+  								 Invitees
+  								 </div>
+  							 </div>
+  							<% end %>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  			<% end %>
+  		</div>
 
-		<div>
-				<% @teams_member.each do |team| %>
-				<div class="card-team mb-2">
-					<% if team.photo.attached? %>
-					<%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
-					<% else %>
-					<%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
-					<% end %>
-					<div class="card-team-infos">
-						<h4><%= team.name %></h4>
-						<p><%= team.description %></p>
+  		<div>
+  				<% @teams_member.each do |team| %>
+  				<div class="card-team mb-2">
+  					<% if team.photo.attached? %>
+  					<%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
+  					<% else %>
+  					<%= image_tag "default_team.png", alt: "Default team pic", class: "card-team-img" %>
+  					<% end %>
+  					<div class="card-team-infos">
+  						<h4><%= team.name %></h4>
+  						<p><%= team.description %></p>
 
-						<div class="d-flex justify-content-between mt-2">
-							<div class="d-flex">
-								<!-- below to be replaced with avatar image -->
-								<%= cl_image_tag team.memberships.where(owner: true)[0].user.valid_photo_url, class: "avatar", alt: "avatar" %>
-								<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
-							</div>
-							<div class="trash-can" id="trash">
-							  <%= link_to membership_path(membership = current_user.memberships.find_by(team: team)),
-							  method: :delete,
-							  data: { confirm: "🗑 ARE YOU SURE YOU WANT TO DELETE THIS TEAM? THIS ACTION CANNOT BE UNDONE. DELETING YOURSELF WILL NOT DELETE THE TEAM FOR OTHERS. 🚮" } do %>
-							  <i class="fas fa-times-circle"></i>
-							  <% end %>
-							</div>
-							<div class="d-flex align-items-end flex-column mt-2">
-								<%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
-								<div class="d-flex text-left align-items-center">
-									<div id="icon-holder">
-										<i class="fas fa-info-circle"></i>
-									</div>
-									<div id="text-holder">
-										Details
-									</div>
-								</div>
-								<% end %>
-							</div>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		</div>
+  						<div class="d-flex justify-content-between mt-2">
+  							<div class="d-flex">
+  								<!-- below to be replaced with avatar image -->
+  								<%= cl_image_tag team.memberships.where(owner: true)[0].user.valid_photo_url, class: "avatar", alt: "avatar" %>
+  								<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
+  							</div>
+  							<div class="trash-can" id="trash">
+  							  <%= link_to membership_path(membership = current_user.memberships.find_by(team: team)),
+  							  method: :delete,
+  							  data: { confirm: "🗑 ARE YOU SURE YOU WANT TO DELETE THIS TEAM? THIS ACTION CANNOT BE UNDONE. DELETING YOURSELF WILL NOT DELETE THE TEAM FOR OTHERS. 🚮" } do %>
+  							  <i class="fas fa-times-circle"></i>
+  							  <% end %>
+  							</div>
+  							<div class="d-flex align-items-end flex-column mt-2">
+  								<%= link_to team_path(team), id: "details", class: "btn-invitation btn-details" do %>
+  								<div class="d-flex text-left align-items-center">
+  									<div id="icon-holder">
+  										<i class="fas fa-info-circle"></i>
+  									</div>
+  									<div id="text-holder">
+  										Details
+  									</div>
+  								</div>
+  								<% end %>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+  			<% end %>
+  		</div>
+    </div>
 	</div>
+  </div>
 <% end %>
