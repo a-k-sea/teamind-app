@@ -78,20 +78,20 @@ puts "done seeding users!"
 
 puts "Start seeding teams..."
 team1 = Team.create(name: "The Hague Heroes", description: "We are team of like-minded coders from The Hague.")
-photo = URI.open('https://lh3.googleusercontent.com/proxy/nCup3nVTFtOzsEsW3YGXbcpwiSACjXiZ09ShCiEtxKVe4o0FR0BXoS6oEB7oDa_LcXUciNIV8mMqz_LttGv-7rC7-1o')
+photo = URI.open('https://images.unsplash.com/photo-1526560244950-1a3c1ace48f9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2627&q=80')
 team1.photo.attach(io: photo, filename: 'team.png', content_type: 'image/png')
 
 team2 = Team.create(name: "Lyon Lions", description: "We are team of like-minded coders from Lyon.")
-photo = URI.open('https://www.talk-business.co.uk/wp-content/uploads/2019/05/shutterstock_1139899730-632x422.jpg')
-team2.photo.attach(io: photo, filename: 'team.png', content_type: 'image/png')
+photo = URI.open('https://images.unsplash.com/photo-1526663089957-f2aa2776f572?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
+team2.photo.attach(io: photo, filename: 'team2.png', content_type: 'image/png')
 
 team3 = Team.create(name: "Maastricht Masters", description: "We are team of like-minded coders from Maastricht.")
-photo = URI.open('https://www.gsb.stanford.edu/sites/default/files/styles/1630x_variable/public/build-better-teams-key.jpg?itok=cenTh4Hq')
-team3.photo.attach(io: photo, filename: 'team.png', content_type: 'image/png')
+photo = URI.open('https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1330&q=80')
+team3.photo.attach(io: photo, filename: 'team3.png', content_type: 'image/png')
 
 team4 = Team.create(name: "Frankfurt Foodies", description: "We are team of like-minded coders from Frankfurt.")
-photo = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-4oETzAue_iDKdE7K6BoXLiMhGcf8algl6A&usqp=CAU')
-team4.photo.attach(io: photo, filename: 'team.png', content_type: 'image/png')
+photo = URI.open('https://images.unsplash.com/photo-1558403194-611308249627?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+team4.photo.attach(io: photo, filename: 'team4.png', content_type: 'image/png')
 puts "done seeding teams!"
 
 puts "Start seeding memberships..."
