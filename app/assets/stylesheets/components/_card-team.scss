@@ -86,8 +86,7 @@
   top: 20px;
   opacity: 65%;
   cursor: pointer;
-    .fa-trash-alt:before {
-      content: "\f2ed";
-      color:  black;
+    .fa-times-circle:before {
+      color:  rgb(160, 19, 19);
   }
 }
