@@ -28,10 +28,14 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { countChecks } from '../components/checkbox';
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+
 // import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  initUpdateNavbarOnScroll();
+
   // initSelect2();
   countChecks();
   // initSweetalert('#reject', {
