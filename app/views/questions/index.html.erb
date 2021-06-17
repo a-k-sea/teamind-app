@@ -13,7 +13,10 @@
         :input_html => { :name => "user_answers[#{question.id}]", class: "answer-input" },
         as: :radio_buttons,
         collection: question.answers.map { |answer| [answer.content, answer.id] },
-        checked: answers[index]%>
+        checked: answers[index],
+        collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'answer-wrapper-team',
+        item_wrapper_class: 'answer-item-team'%>
       <% end %>
       </div>
   </div>
@@ -25,3 +28,7 @@
 </div>
 
 
+
+   <!--      collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'answer-wrapper',
+        item_wrapper_class: 'answer-item -->
