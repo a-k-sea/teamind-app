@@ -4,7 +4,7 @@
     <p class="text-center">Get to know <%= @user.first_name %>'s personality & working preferences</p>
 
     <div class="d-flex flex-column align-items-center mb-4">
-      <%= cl_image_tag @user.photo.key, class: "avatar-colored-border", crop: :fill %>
+      <%= cl_image_tag @user.valid_photo_url, class: "avatar-colored-border", crop: :fill %>
       <p><%= @user.personality&.abbreviation %></p>
       <div>
 
