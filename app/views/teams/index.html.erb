@@ -1,6 +1,6 @@
 <% if @teams.count == 0 %>
 
-	<div class="container mt-4" id="team-form">
+	<div class="div-80-transparent mt-4" id="team-form">
 		<h3>You are not part of a team yet <i class="far fa-frown-open"></i></h3>
 		<div class="d-flex justify-content-center align-center" id="first-team">
 			<%= link_to create_team_path(:new) do %>
@@ -99,7 +99,7 @@
   					<p><%= team.description %></p>
   					<div class="d-flex justify-content-between mt-2">
   						<div class="d-flex">
-  							<%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
+  							<%= cl_image_tag team.memberships.where(owner: true)[0].user.valid_photo_url, class: "avatar", alt: "avatar" %>
   							<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
   							<div class="trash-can" id="trash">
   								<%= link_to membership_path(membership = current_user.memberships.find_by(team: team)),
