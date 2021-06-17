@@ -2,15 +2,15 @@
   // max-width: 70%;
   border-radius: 30px;
   overflow: hidden;
-  background: #F6FBF9;
-  border: solid 2px #F2F2F2;
+  background: $bg-white;
+  border: solid 2px $border-grey;
   margin: 10px;
   padding: 50px;
 }
 
 .answer-item {
   border-radius: 30px;
-  border: solid 2px #F2F2F2;
+  border: solid 2px $border-grey;
   // margin: 10px;
   padding: 12px;
   font-size: 14px;
@@ -19,7 +19,7 @@
 }
 
 .answer-input + label {
-  border: solid 2px white;
+  border: solid 2px $border-grey;
   border-radius: 20px;
   padding: 10px 20px;
   font-size: 14px;
@@ -29,7 +29,7 @@
 }
 
 .answer-input-q + label {
-  border: solid 2px white;
+  border: solid 2px $border-grey;
   border-radius: 20px;
   padding: 10px 20px;
   font-size: 14px;
