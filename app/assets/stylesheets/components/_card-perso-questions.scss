@@ -18,10 +18,20 @@
   text-align: justify;
 }
 
+.answer-input + label {
+  border: solid 2px white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  width: 300px;
+  text-align: justify;
+  margin: 8px;
+}
+
 .answer-input:checked + label {
   color: $btn-blue !important;
   font-weight: bold;
-  border-color: $btn-blue;
+  border: solid 2px $btn-blue;
 }
 
 .answer-wrapper{
@@ -34,3 +44,29 @@
 .answer-wrapper :hover {
   cursor: pointer;
 }
+
+.answer-wrapper-team :hover {
+  cursor: pointer;
+}
+
+// .answer-item-team {
+//   border-radius: 20px;
+//   padding: 10px 20px;
+//   font-size: 14px;
+//   width: 300px;
+//   text-align: justify;
+//   margin: 8px;
+// }
+
+
+// .answer-item-team:checked + label {
+//   color: $btn-blue !important;
+//   font-weight: bold;
+//   border-radius: 20px;
+//   border: solid 2px $btn-blue ;
+//   padding: 10px 20px;
+//   font-size: 14px;
+//   width: 300px;
+//   text-align: justify;
+//   margin: 8px;
+// }
