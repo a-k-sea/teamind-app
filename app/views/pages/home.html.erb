@@ -1,19 +1,15 @@
-<%# I am the landing page %>
+<div class="d-flex justify-content-center">
+  <div class="div-80-transparent">
+    <div class="row">
+    <div class="col-6 col-md-4 align-items-center m-auto" id="landing-blurb">
+      <h1>Humanizing Remote Work</h1>
+      <p>Find out more about your teammates' personalities, their work style & communication preferences.</p><br>
+      <button type="submit" id="landing-btn"><%= link_to "CREATE ACCOUNT", new_user_registration_path %></button>
 
-<!-- <div class="container d-flex"> -->
-  <div class="d-flex justify-content-center">
-    <div class="div-80-transparent">
-      <div class="row">
-      <div class="col-6 col-md-4 align-items-center m-auto" id="landing-blurb">
-        <h1>Humanizing Remote Work</h1>
-        <p>Helping teams to state their preferred working style & communication means.</p><br>
-        <button type="submit" id="landing-btn"><%= link_to "CREATE ACCOUNT", new_user_registration_path %></button>
-
-      </div>
-      <div class="col-6 col-md-8" id="landing-pic">
-        <%= image_tag "9814.png", alt: "teamind teamwork", style: "height:auto;width:inherit;border-radius:5vh;margin-top:10%;" %>
-      </div>
-      </div>
+    </div>
+    <div class="col-6 col-md-8" id="landing-pic">
+      <%= image_tag "9814.png", alt: "teamind teamwork", style: "height:auto;width:inherit;border-radius:5vh;margin-top:10%;" %>
+    </div>
     </div>
   </div>
-<!-- </div> -->
+</div>

@@ -36,10 +36,10 @@
     </div>
     <div class="container mb-3 text-center">
       <!-- Button trigger modal -->
-      <button type="button" class="btn-details" id="invite" data-toggle="modal" data-target="#exampleModal">
+      <button type="button mb.2" class="btn-details" id="invite" data-toggle="modal" data-target="#exampleModal">
         Add another team member
       </button>
-      <div class="container mt-3" id="confirm-buttons">
+      <div class="container mt-4" id="confirm-buttons">
         <%= link_to "Back to teams", teams_path, id:"medium-btn-create" %>
       </div>
 
@@ -47,8 +47,8 @@
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">New team member</h5>
+            <div class="modal-header text-center">
+              <h2 class="modal-title w-100" id="exampleModalLabel"><i class="far fa-envelope"></i></h2>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -57,7 +57,7 @@
               <div class="container text-center">
                 <%= simple_form_for [@team, Membership.new] do |f| %>
                 <%= f.input :user, label: "Enter the email address of the person you wish to invite"%>
-                <%= f.submit "invite", id: "medium-btn-create" %>
+                <%= f.submit "Invite", id: "medium-btn-create" %>
                 <% end %>
               </div>
             </div>

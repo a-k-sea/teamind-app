@@ -47,23 +47,23 @@
   						  <% if status == "pending" %>
   							<%= link_to team_questions_path(team), id: "accept", class: "btn-invitation btn-accept" do %>
   							<div class="d-flex text-left align-items-center">
-  						      <% if current_user == team.memberships.find_by(owner: true).user %>
+						      <% if current_user == team.memberships.find_by(owner: true).user %>
   							    <div id="icon-holder">
-  								  <i class="fas fa-question"></i>
-  								</div>
-  								<div id="text-holder">
-  								  Questions
-  								</div>
-  							  </div>
+  								    <i class="fas fa-question"></i>
+    								</div>
+    								<div id="text-holder">
+    								  Questions
+    								</div>
+							  </div>
   							  <% else %>
-  								<div id="icon-holder">
-  								  <i class="fas fa-check"></i>
-  								</div>
-  								<div id="text-holder">
-  								  Join
-  								</div>
-  							  </div>
-  							<% end %>
+    								<div id="icon-holder">
+    								  <i class="fas fa-check"></i>
+    								</div>
+    								<div id="text-holder">
+    								  Join
+    								</div>
+    							  </div>
+  							 <% end %>
   						  <% end %>
 
   							<%= link_to membership_path(Membership.find_by(user: current_user, team: team), query: "reject"), id: "reject", class: "btn-invitation btn-decline", method: :patch, data: { confirm: "Are you sure you want to decline this invitation?" } do %>

@@ -7,23 +7,25 @@
   <br>
 
   <h3>Set up your team</h3>
-  <p>Invite other team members to start humanizing remote work</p>
+  <p class="mb-4">Invite other team members to start humanizing remote work</p>
 
   <br>
 
-  <div class="container" id="create-team-form">
+  <div class="m-auto" id="create-team-form">
     <%# Make this actually create a team %>
     <%= simple_form_for @team, url: wizard_path(@step), method: :patch do |f| %>
       <h6><b><%= f.input :name, label:"Team name" %></b></h6>
       <h6><b><%= f.input :description, label:"Short description" %></b></h6>
       <h6><b><%= f.input :email, label: "Email addresses (separate by comma)" %></b></h6>
-      <label class="btn btn-outline-dark">
-        <i class="far fa-image"></i> Add a nice picture of your team
-        <span style="display:none;">
-          <%= f.input :photo, as: :file %>
-        </span>
-      </label>
-      <br><br><br>
+      <div class="text-center">
+        <label class="btn btn-outline-dark">
+          <i class="far fa-image"></i> Add a nice picture of your team
+          <span style="display:none;">
+            <%= f.input :photo, as: :file %>
+          </span>
+        </label>
+      </div>
+      <br>
       <div class="text-center">
         <%= f.submit "Proceed", id: "medium-btn-create" %>
       </div>
