@@ -28,12 +28,27 @@
   margin: 8px;
 }
 
+.answer-input-q + label {
+  border: solid 2px white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  width: 400px;
+  text-align: justify;
+  margin: 8px;
+}
+
 .answer-input:checked + label {
   color: $btn-blue !important;
   font-weight: bold;
   border: solid 2px $btn-blue;
 }
 
+.answer-input-q:checked + label {
+  color: $btn-blue !important;
+  font-weight: bold;
+  border: solid 2px $btn-blue;
+}
 .answer-wrapper{
   display: flex;
   justify-content: space-between;
@@ -48,6 +63,7 @@
 .answer-wrapper-team :hover {
   cursor: pointer;
 }
+
 
 // .answer-item-team {
 //   border-radius: 20px;
