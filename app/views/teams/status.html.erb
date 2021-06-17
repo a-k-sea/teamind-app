@@ -1,37 +1,7 @@
 <div class="container">
 
   <div class="card-status">
-    <div class="container mb-3 text-right">
-      <!-- Button trigger modal -->
-      <button type="button" class="btn-details" id="invite" data-toggle="modal" data-target="#exampleModal">
-        Add another team member
-      </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">New team member</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="container text-center">
-                <%= simple_form_for [@team, Membership.new] do |f| %>
-                <%= f.input :user, label: "Enter the email address of the person you wish to invite"%>
-                <%= f.submit "invite", id: "medium-btn-create" %>
-                <% end %>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn-invitation btn-details text-center" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <h2 class="text-center">Invitation status</h2>
     <div class="row justify-content-center">
       <div class="col-8 md-col-6">
@@ -61,6 +31,38 @@
             </div>
           </div>
         <% end %>
+      </div>
+    </div>
+
+    <div class="container mb-3 text-center">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn-details" id="invite" data-toggle="modal" data-target="#exampleModal">
+        Add another team member
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New team member</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container text-center">
+                <%= simple_form_for [@team, Membership.new] do |f| %>
+                <%= f.input :user, label: "Enter the email address of the person you wish to invite"%>
+                <%= f.submit "invite", id: "medium-btn-create" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn-invitation btn-details text-center" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
