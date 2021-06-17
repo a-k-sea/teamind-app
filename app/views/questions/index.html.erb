@@ -1,14 +1,14 @@
 <div class="container mb-4">
     <%= simple_form_for(:user_answers, method: :post, url: user_answers_team_path(@team)) do |f| %>
-  <div class="container mb-4" id="questionnaire-form">
-    <h1 class="text-center"><%= @team.name %> questionnaire</h1>
+  <div class="mb-4" id="questionnaire-form">
+    <h3 class="text-center"><%= @team.name %> questionnaire</h3>
     <p class="text-center">Answer all questions to join the team and see what others think</p>
       <!-- ask Marin -->
       <div class="card-questions">
-      <%= f.input :team, :as => :hidden, :input_html => { :name => "team[#{@team.id}]" } %>
+      <%#= f.input :team, :as => :hidden, :input_html => { :name => "team[#{@team.id}]" } %>
       <% answers = params[:user_answers]&.values || [] %>
       <% @questions.each_with_index do |question, index| %>
-     <%= f.input question.content, label: "<b>#{question.content}</b>".html_safe, :input_html => { :name => "user_answers[#{question.id}]" }, as: :radio_buttons, collection: question.answers.map { |answer| [answer.content, answer.id] }, checked: answers[index] %>
+     <p><%= f.input question.content, label: "<b>#{question.content}</b>".html_safe, :input_html => { :name => "user_answers[#{question.id}]" }, as: :radio_buttons, collection: question.answers.map { |answer| [answer.content, answer.id] }, checked: answers[index] %></p>
       <% end %>
       </div>
   </div>
