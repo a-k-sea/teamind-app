@@ -39,6 +39,9 @@
       <button type="button" class="btn-details" id="invite" data-toggle="modal" data-target="#exampleModal">
         Add another team member
       </button>
+      <div class="container mt-5" id="confirm-buttons">
+        <%= link_to "Back to teams", teams_path, id:"medium-btn-create" %>
+      </div>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -65,10 +68,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="container mt-5" id="confirm-buttons">
-    <%= link_to "Back to teams", teams_path, id:"small-btn" %>
   </div>
 
 </div>
