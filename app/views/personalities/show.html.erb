@@ -1,10 +1,12 @@
 <div class="div-80-transparent">
   <% if current_user.personality %>
   <div class="text-left mb-2" id="personality-show">
-    <h2><%= current_user.first_name %>, your personality type is <%= current_user.personality.abbreviation %> </h2>
-    <h4 class="mb-4">Below you can find a short description of what working in a team means for you</h4>
-    <%= image_tag "teamwork.png", alt: "team graphic" %>
-    <p class="mb-4"><%= @personality.description %></p>
+    <h3 class="text-center"><%= current_user.first_name %>, your personality type is <b><%= current_user.personality.abbreviation %></b></h3>
+    <p class="text-center mb-4">Below you can find a short description of what working in a team means for you</p>
+    <div class="text-center mb-4">
+      <%= image_tag "teamwork.png", alt: "team graphic" %>
+    </div>
+    <p class="mb-5"><%= @personality.description %></p>
     <div class="text-center" id="confirm-buttons">
         <%= link_to "Go to dashboard", teams_path, id: "medium-btn-create"  %>
     </div>

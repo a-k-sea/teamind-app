@@ -5,14 +5,14 @@
   <br>
   <div class="text-center">
     <h3>Setup questionnaire</h3>
-    <p>Select the questions that are most relevant to your team</p>
+    <p class="mb-4">Select the questions that are most relevant to your team</p>
   </div>
   <br>
   <%= simple_form_for :question, url: wizard_path(:questionnaire), method: :patch do |f| %>
     <div class="row">
       <div class="col-3">
-        <h6><b>Select category</b></h6>
-        <div class="nav flex-column nav-pills mt-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <h6 style="color: #1F333D"><b><i class="fas fa-tag"></i> Select category</b></h6>
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <% @categories.each_with_index do |category, index| %>
           <br>
             <a class="nav-link <%= "active" if index == 0 %>" id="v-pills-<%= category.parameterize %>-tab" data-toggle="pill" href="#v-pills-<%= category.parameterize %>" role="tab" aria-controls="v-pills-<%= category.parameterize %>" aria-selected="true"><%= category %></a>
@@ -21,7 +21,7 @@
       </div>
       <div class="col-9">
         <div class="d-flex justify-content-between">
-          <h6><b>Pick questions (max. 10)</b></h6>
+          <h6 style="color: #1F333D"><b><i class="far fa-question-circle"></i> Pick questions</b> (max. 10)</h6>
           <h6 id="check-counter">(<%= @selected.length %>/10)</h6>
         </div>
         <div class="tab-content" id="v-pills-tabContent">

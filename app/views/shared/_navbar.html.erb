@@ -21,9 +21,15 @@
             </nav>
               <nav class="nav-item dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" >
                 <p>Welcome <%= current_user.first_name %>!</p>
-                <%= link_to "My Profile", personality_path, class: "dropdown-item" %>
-                <%= link_to "My Teams", teams_path, class: "dropdown-item" %>
-                <%= link_to "Create Team", create_team_path(:new), class: "dropdown-item" %>
+                <%= link_to personality_path, class: "dropdown-item" do %>
+                  <i class="fas fa-user-circle"></i> My Profile
+                <% end %>
+                <%= link_to teams_path, class: "dropdown-item" do %>
+                  <i class="fas fa-users"></i> My Teams
+                <% end %>
+                <%= link_to create_team_path(:new), class: "dropdown-item" do %>
+                  <i class="fas fa-plus-circle"></i>  Add Team
+                <% end %>
                 <hr class="dropdown-divider">
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </nav>

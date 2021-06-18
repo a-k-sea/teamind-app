@@ -6,7 +6,7 @@
   <br>
 
   <h3>Final check</h3>
-  <p>Check your team setup and questionnaire</p>
+  <p class="mb-4">Check your team details and selected questions</p>
 
   <br><br>
 
@@ -39,11 +39,11 @@
       <% end %>
       </ol>
     </div>
-    <br><br><br>
+
     <div  id="confirm-buttons">
       <%= link_to "Back", wizard_path(:questionnaire), id: "back-button" %>
       <%= link_to create_team_index_path, method: :post do %>
-        <button id="medium-btn-create">Send</button>
+        <button id="medium-btn-create" class="mt-5">Setup new team</button>
       <% end %>
     </div>
   </div>

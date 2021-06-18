@@ -3,12 +3,14 @@
   background-color: #F6FBF9;
   text-align: center;
   border-radius: 24px;
-  padding: 65px 75px;
+  padding: 8vw 16vw;
 }
 
 #create-team-form { 
-  max-width: 75%;
   text-align: left;
+  .form-control {
+    border-radius: 15px;
+  }
 }
 
 
@@ -45,6 +47,9 @@
 
 #confirm-form { 
   text-align: left;
+  h6 {
+    color: #1F333D;
+  }
 }
 
 #confirm-form-background { 

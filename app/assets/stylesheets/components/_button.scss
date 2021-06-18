@@ -12,13 +12,13 @@
 #landing-btn {
   padding: 10px 20px;
   background-color: $btn-blue;
+  transition: background-color .6s ease;
   border-radius: 20px;
   border: none;
   cursor: pointer;
-  // a {
-  //   width: 100%;
-  //   font-size: 1.5vw;
-  // }
+  &:hover {
+    background: darken($btn-blue,7%);
+  }
 }
 
 #login-btn {
@@ -44,14 +44,17 @@
   text-align: center;
   padding: 10px 20px;
   font-size: 16px;
-  // width: 100px;
   background-color: $btn-blue;
+  transition: background-color .6s ease;
   border-radius: 20px;
   font-family: $headers-font;
   color: #FFFFFF;
   font-weight: bold;
   border: none;
   cursor: pointer;
+  &:hover {
+      background: darken($btn-blue,7%);
+  }
 }
 
 #outline-btn {
@@ -102,6 +105,7 @@
 }
 
 .btn-invitation {
+  background-color: #F6FBF9;
   border-radius: 24px;
   font-weight: lighter;
   opacity: 0.6;
@@ -237,24 +241,10 @@ a:hover {
   }
 }
 
-
-// #landing-btn {
-//   background-color: $btn-blue;
-//   border-radius: 24px;
-//   font-family: $headers-font;
-//   color: #FFFFFF;
-//   font-weight: bold;
-//   border: none;
-//   cursor: pointer;
-//   width: 200px;
-//   padding: 10px 20px;
-// }
-
 #invite {
   background: transparent;
   border-radius: 24px;
   padding: 10px 20px;
-  margin: 5%;
   opacity: 0.6;
   transition: opacity 0.3s ease;
     &:hover {
