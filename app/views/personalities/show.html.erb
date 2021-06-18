@@ -14,7 +14,7 @@
   <% else %>
   <div class="text-center" id="personality-show">
     <h3><%= current_user.first_name %>, you don't have a teamind profile yet! <i class="far fa-frown-open"></i></h3>
-    <p>Please fill out our short questionnaire to unleash the magic and find out more about how you work in a team! <i class="fas fa-magic"></i></p>
+    <p class="mb-4">Please fill out our short questionnaire to unleash the magic and find out more about how you work in a team! <i class="fas fa-magic"></i></p>
     <div class="d-flex justify-content-center mt-4">
       <%= link_to personality_test_path do %>
       <div class="d-flex align-items-center" id="personality-btn"><i class="fas fa-list-ul mr-3"></i>Create profile</div>

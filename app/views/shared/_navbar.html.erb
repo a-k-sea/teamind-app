@@ -1,5 +1,5 @@
 <header class="navbar navbar-expand navbar-light navbar-teamind">
-  <div class="container" id="navbar-container">
+  <div class="div-80-transparent" id="navbar-container">
 
     <%# teamind logo redirects to landing page if not logged in, and teams page if logged in%>
     <% if user_signed_in? %>
@@ -31,7 +31,9 @@
                   <i class="fas fa-plus-circle"></i>  Add Team
                 <% end %>
                 <hr class="dropdown-divider">
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                  <i class="fas fa-sign-out-alt"></i> Log out
+                <% end %>
               </nav>
           </ul>
         <% else %>

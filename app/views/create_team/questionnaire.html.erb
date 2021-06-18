@@ -1,6 +1,6 @@
 <br>
 
-<div class="container" id="questionnaire-form">
+<div class="div-80-transparent" id="questionnaire-form">
   <%= render "stepper", step: 2 %>
   <br>
   <div class="text-center">
@@ -14,7 +14,6 @@
         <h6 style="color: #1F333D"><b><i class="fas fa-tag"></i> Select category</b></h6>
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <% @categories.each_with_index do |category, index| %>
-          <br>
             <a class="nav-link <%= "active" if index == 0 %>" id="v-pills-<%= category.parameterize %>-tab" data-toggle="pill" href="#v-pills-<%= category.parameterize %>" role="tab" aria-controls="v-pills-<%= category.parameterize %>" aria-selected="true"><%= category %></a>
           <% end %>
         </div>
