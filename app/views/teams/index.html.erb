@@ -86,7 +86,7 @@
   			<% end %>
   		</div>
   		<div class="team-section mt-4">
-  			<h3 class="mt-3"><i class="fas fa-users"></i> Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
+  			<h3 class="mt-3 mb-4"><i class="fas fa-users"></i> Your teams (<%= @teams_admin.count + @teams_member.count %>)</h3>
   			<% @teams_admin.each do |team| %>
   			<div class="card-team mb-4">
   				<% if team.photo.attached? %>
