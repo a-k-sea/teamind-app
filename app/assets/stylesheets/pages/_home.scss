@@ -18,3 +18,19 @@
 #landing-blurb p {
   // width: 100%;
 }
+
+#how-to-section {
+  margin-bottom: 100px;
+  img {
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+  }
+  p {
+    color: #335e75;
+  }
+}
+
+#how-to-header {
+  margin-top: 100px;
+}
