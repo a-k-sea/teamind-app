@@ -9,42 +9,49 @@
   <p class="mb-4">Check your team details and selected questions</p>
 
   <br><br>
+  <% if session[:create_team] && session[:create_team]["team"] %>
+    <div id="confirm-form">
+      <h6 class="mb-3"><b><i class="fas fa-tag"></i> Your team name</b></h6>
 
-  <div id="confirm-form">
-    <h6 class="mb-3"><b><i class="fas fa-tag"></i> Your team name</b></h6>
+      <div id="confirm-form-background">
+          <%= session[:create_team]["team"]["name"] %>
+      </div>
+      <br><br>
+      <h6 class="mb-3"><b><i class="fas fa-edit"></i> Your team description</b></h6>
 
-    <div  id="confirm-form-background">
-        <%= session[:create_team]["team"]["name"] %>
+      <div  id="confirm-form-background">
+        <%= session[:create_team]["team"]["description"] %>
+      </div>
+      <br><br>
+      <h6 class="mb-2"><b><i class="fas fa-users"></i> Your team members</b></h6>
+
+      <div  id="confirm-form-background">
+        <%= session[:create_team]["team"]["email"] %>
+      </div>
+      <br><br>
+      <h6 class="mb-3"><b><i class="far fa-question-circle"></i> Your questionnaire</b></h6>
+
+      <div pt-2 id="confirm-form-background">
+        <ol class="pl-3">
+        <% session[:create_team]["questions"].each do |question_id| %>
+
+        <li><p><%= Question.find(question_id).content %></p></li>
+        <% end %>
+        </ol>
+      </div>
+
+      <div  id="confirm-buttons">
+        <%= link_to "Back", wizard_path(:questionnaire), id: "back-button" %>
+        <%= link_to create_team_index_path, method: :post do %>
+          <button id="medium-btn-create" class="mt-5">Setup new team</button>
+        <% end %>
+      </div>
     </div>
-    <br><br>
-    <h6 class="mb-3"><b><i class="fas fa-edit"></i> Your team description</b></h6>
-
-    <div  id="confirm-form-background">
-      <%= session[:create_team]["team"]["description"] %>
-    </div>
-    <br><br>
-    <h6 class="mb-2"><b><i class="fas fa-users"></i> Your team members</b></h6>
-
-    <div  id="confirm-form-background">
-      <%= session[:create_team]["team"]["email"] %>
-    </div>
-    <br><br>
-    <h6 class="mb-3"><b><i class="far fa-question-circle"></i> Your questionnaire</b></h6>
-
-    <div pt-2 id="confirm-form-background">
-      <ol class="pl-3">
-      <% session[:create_team]["questions"].each do |question_id| %>
-
-      <li><p><%= Question.find(question_id).content %></p></li>
-      <% end %>
-      </ol>
+  <% else %>
+    <div id="confirm-form" class="text-center">
+      <p class="mb-4">Please go back and enter your team details first!</p>
+      <%= link_to "Back to team setup", wizard_path(:new), id: "medium-btn-create" %>
     </div>
 
-    <div  id="confirm-buttons">
-      <%= link_to "Back", wizard_path(:questionnaire), id: "back-button" %>
-      <%= link_to create_team_index_path, method: :post do %>
-        <button id="medium-btn-create" class="mt-5">Setup new team</button>
-      <% end %>
-    </div>
-  </div>
+  <% end %>
 </div>
