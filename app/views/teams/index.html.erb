@@ -38,7 +38,7 @@
 
   					<div class="d-flex justify-content-between mt-2">
   						<div class="d-flex">
-  							<%= cl_image_tag team.memberships.where(owner: true)[0].user.photo.key, class: "avatar", alt: "avatar" %>
+  							<%= cl_image_tag team.memberships.where(owner: true)[0].user.valid_photo_url, class: "avatar", alt: "avatar" %>
   							<p class="m-2"><%= team.memberships.where(owner: true)[0].user.first_name %> <%= team.memberships.where(owner: true)[0].user.last_name %></p>
   						</div>
 
