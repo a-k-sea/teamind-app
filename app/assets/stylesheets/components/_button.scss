@@ -108,7 +108,7 @@
   background-color: #F6FBF9;
   border-radius: 24px;
   font-weight: lighter;
-  opacity: 0.6;
+  opacity: 0.7;
   transition: opacity 0.3s ease;
   font-size: 12px;
   text-align: right;
@@ -121,8 +121,10 @@
   &:hover {
     opacity: 1;
     text-decoration: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
 }
+
 
 .btn-details {
   color: $btn-blue;

@@ -13,7 +13,7 @@
 <% else %>
 	<div class="d-flex justify-content-center">
   <div class="div-80-transparent">
-    <div class=" mb-4 d-flex flex-column justify-content-center">
+    <div class="mb-4 d-flex flex-column justify-content-center">
   		<div class="team-section mt-4 text-left">
 
   			<div class="d-flex justify-content-end mt-6" id="first-team">
@@ -26,7 +26,7 @@
   			<% end %>
         <% @teams_open.each do |team| %>
 
-  			<div class="card-team mb-4">
+  			<div class="card-team mb-4 d-flex">
   				<% if team.photo.attached? %>
   				  <%= cl_image_tag team.photo.key, class: "card-team-img", alt: "team image" %>
   				<% else %>
