@@ -17,6 +17,13 @@
   margin: auto;
 }
 
+@media (min-width: 768px) {
+  .bg-card-sm {
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
+
 .bg-card, .bg-card-sm h1 {
   text-align: center;
 }
