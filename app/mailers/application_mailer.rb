@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'teamind'
+  default from: 'info@teamind.club'
   layout 'mailer'
 end
