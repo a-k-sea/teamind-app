@@ -11,11 +11,15 @@ class Team < ApplicationRecord
   end
 
   def invite(email)
-    user = User.find_by_email(email)
-    user = User.invite!(email: email, password: 'password', skip_invitation: true) unless user
+    if User.find_by_email(email)
+      user = User.find_by_email(email)
+    else
+      user = User.invite!(email: email)
+      # user = User.invite!({ email: 'new_user@example.com' }, current_user)
+      # user = User.invite!(email: email, password: 'password', skip_invitation: true)
+    end
+    # user = User.invite!(email: email, password: 'password', skip_invitation: true) unless user
     membership_member = Membership.new(user: user, team: self, owner: false)
     membership_member.save
   end
-
 end
-

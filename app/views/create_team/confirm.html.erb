@@ -9,7 +9,7 @@
   <p class="mb-4">Check your team details and selected questions</p>
 
   <br><br>
-  <% if session[:create_team] && session[:create_team]["team"] %>
+  <% if session[:create_team] && session[:create_team]["team"] && session[:create_team]["questions"] %>
     <div id="confirm-form">
       <h6 class="mb-3"><b><i class="fas fa-tag"></i> Your team name</b></h6>
 
@@ -49,7 +49,7 @@
     </div>
   <% else %>
     <div id="confirm-form" class="text-center">
-      <p class="mb-4">Please go back and enter your team details first!</p>
+      <p class="mb-4">Please go back and enter your team details and select some questions first!</p>
       <%= link_to "Back to team setup", wizard_path(:new), id: "medium-btn-create" %>
     </div>
 

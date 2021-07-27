@@ -19,12 +19,13 @@ class MembershipsController < ApplicationController
     if @membership.owner?
       team = @membership.team
       new_owner = team.memberships.where("status != 2 AND owner = false").order(status: "desc").first
-      if new_owner == nil
+      if new_owner.nil?
         @membership.destroy
+        team.team_questions.destroy_all
         team.destroy
       else
-      new_owner.owner = true
-      new_owner.save
+        new_owner.owner = true
+        new_owner.save
       end
     end
     @membership.destroy
